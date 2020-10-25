@@ -66,3 +66,36 @@ body{
 .nav-menu ul a:hover{
     background-color: rgba(51, 58, 61, 0.7);
 }
+
+/*--------------------SCORERS--------------------*/
+.container{
+    background-color: #1f252b;
+    width:81%;
+    height: 100vh;
+    border-radius: 25px;
+    margin: 4% auto 0 auto;
+    padding: 4% 0;
+}
+table{
+    color: #ebebeb;
+    margin: auto;
+    width: 80%;
+}
+table th{
+    background: #242E35;
+    text-align: left;
+    width: 10%;
+    padding: 1% 0 1% 1%;
+    border-radius: 5px;
+}
+table th:first-child{
+    width: 1%;
+    text-align: center;
+    padding-left: 0;
+}
+table td{
+    background: #242E35;
+    padding-left: 1%;
+    border-radius: 5px;
+    padding: 0.5% 0 0.5% 1%;
+}
