@@ -1,0 +1,30 @@
+/*--------------------LEADERBOARDS--------------------*/
+table{
+    color: #ebebeb;
+    margin: auto;
+    width: 80%;
+}
+table th{
+    background: #242E35;
+    text-align: left;
+    width: 5%;
+    padding: 1% 0 1% 1%;
+    border-radius: 5px;
+}
+table th:first-child{
+    width: 3%;
+    text-align: center;
+    padding-left: 0;
+}
+table th:nth-child(2){
+    width: 30%;
+}
+table td{
+    background: #242E35;
+    border-radius: 5px;
+    padding: 0.5% 0 0.5% 1%;
+}
+table td:first-child{
+    text-align: center;
+    padding: 0.5% 0 0.5% 0%;
+}

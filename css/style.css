@@ -6,6 +6,9 @@
 body{
     background-color: #101010;
 }
+
+/*--------------------NAVBAR--------------------*/
+
 .nav-menu{
     position: relative;
     height: 8%;
@@ -28,7 +31,7 @@ body{
     color: #FBE204;
 }
 
-.nav-menu ul{
+.menu-desktop ul{
     position: absolute;
     display: flex;
     top: 0;
@@ -40,7 +43,7 @@ body{
     align-items: center;
     height: 100%;
 }
-.nav-menu ul a{
+.menu-desktop a{
     background-color: #333a3d;
     border-radius: 0 0 15px 15px;
     width: 20%;
@@ -50,9 +53,10 @@ body{
     margin: 0 0.2%;
     position: relative;
     text-decoration: none;
+    overflow:hidden;
 }
 
-.nav-menu ul a li{
+.menu-desktop ul a li{
     text-align: center;
     font-weight: 700;
     color: #ebebeb;
@@ -63,39 +67,59 @@ body{
     transform: translateY(-50%);
 }
 
-.nav-menu ul a:hover{
+.menu-desktop ul a:hover{
     background-color: rgba(51, 58, 61, 0.7);
 }
 
-/*--------------------SCORERS--------------------*/
+.menu-desktop ul a:after {
+    background: none repeat scroll 0 0 #FBE204;
+    border-radius: 0 0 150px 150px;
+    bottom: 0;
+    content: "";
+    display: inline-block;
+    height: 4px;
+    left: 40%;
+    position: absolute;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+.menu-desktop ul a:hover:after {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+
+/*--------------------CONTAINER--------------------*/
+
 .container{
     background-color: #1f252b;
     width:81%;
-    height: 100vh;
+    min-height: 100vh;
     border-radius: 25px;
-    margin: 4% auto 0 auto;
+    margin: 4% auto;
     padding: 4% 0;
 }
-table{
+.container h1{
+    font-size: 2em;
     color: #ebebeb;
-    margin: auto;
-    width: 80%;
-}
-table th{
-    background: #242E35;
-    text-align: left;
-    width: 10%;
-    padding: 1% 0 1% 1%;
-    border-radius: 5px;
-}
-table th:first-child{
-    width: 1%;
     text-align: center;
-    padding-left: 0;
+    padding-bottom:4% ;
 }
-table td{
-    background: #242E35;
-    padding-left: 1%;
-    border-radius: 5px;
-    padding: 0.5% 0 0.5% 1%;
+
+/*--------------------SCORERS--------------------*/
+
+@media only screen and (max-width: 780px) {
+    .menu-desktop{
+        display: none;
+    }
+    .container {
+        margin: 10% auto;
+        padding: 10% 0;
+    }
+    .container h1{
+        font-size: 1.5em;
+        padding-bottom: 10%;
+    }
 }

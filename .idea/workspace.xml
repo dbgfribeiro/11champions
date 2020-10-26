@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b20f0-620b-41ce-9455-db35cdcbc551" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scorers.php" beforeDir="false" afterPath="$PROJECT_DIR$/scorers.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,6 +13,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,13 +37,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -48,6 +58,10 @@
       <workItem from="1603642445612" duration="1000" />
       <workItem from="1603642456954" duration="3990000" />
       <workItem from="1603647087887" duration="2975000" />
+      <workItem from="1603674664544" duration="486000" />
+      <workItem from="1603675832554" duration="224000" />
+      <workItem from="1603704446355" duration="7746000" />
+      <workItem from="1603712433586" duration="82000" />
     </task>
     <servers />
   </component>
@@ -63,9 +77,13 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="388" y="111" key="#PHP/0.23.1440.877@0.23.1440.877" timestamp="1603642648736" />
-    <state x="539" y="392" key="NewPhpFileDialog" timestamp="1603648604534">
+    <state x="539" y="392" key="NewPhpFileDialog" timestamp="1603704594183">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="539" y="392" key="NewPhpFileDialog/0.23.1440.877@0.23.1440.877" timestamp="1603648604534" />
+    <state x="539" y="392" key="NewPhpFileDialog/0.23.1440.877@0.23.1440.877" timestamp="1603704594183" />
+    <state x="221" y="100" key="SettingsEditor" timestamp="1603674941593">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="221" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1603674941593" />
   </component>
 </project>
