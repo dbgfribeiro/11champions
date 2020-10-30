@@ -5,6 +5,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/leaderboards.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/myscript.js"></script>
     <title>11Champions</title>
 </head>
 <body>
@@ -20,8 +22,13 @@
             </div>
 
             <div class="search">
-                <button onclick="searchOpen()"><img src="img/search.png" alt="search"></button>
-                <input id="searchBar" type="text" placeholder="Search..">
+                <button id="searchOpen"><img src="img/search.png" alt="search"></button>
+                <form id="searchBar" method="get" action="leaderboards.php">
+                    <span>
+                        <input name="search" type="text" placeholder="Search..">
+                        <input name="submit" type="submit" value=">" />
+                    </span>
+                </form>
             </div>
 
             <div class="menu-desktop">
@@ -40,19 +47,6 @@
                     <a href="scorers.php"><li>MARCADORES</li></a>
                 </ul>
             </div>
-            <script>
-                function myFunction(x) {
-                    x.classList.toggle("change");
-                    var menu = document.getElementById("mobile");
-                    menu.style.transition = menu.style.transition == "height 0.3s ease-out" ? "height 0.15s ease-in" : "height 0.3s ease-out";
-                    menu.style.height = menu.style.height == "100vh" ? "0" : "100vh";
-                }
-                function searchOpen(){
-                    document.getElementById("searchBar").style.width = "25%";
-                    document.getElementById("searchBar").style.opacity = "100";
-                }
-
-            </script>
 
         </div>
 
