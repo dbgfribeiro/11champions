@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b20f0-620b-41ce-9455-db35cdcbc551" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/myscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/myscript.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leaderboards.php" beforeDir="false" afterPath="$PROJECT_DIR$/leaderboards.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scorers.php" beforeDir="false" afterPath="$PROJECT_DIR$/scorers.php" afterDir="false" />
     </list>
@@ -18,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -74,6 +77,16 @@
       <workItem from="1603973775616" duration="4762000" />
       <workItem from="1603979996283" duration="77000" />
       <workItem from="1603980574203" duration="158000" />
+      <workItem from="1604072584636" duration="137000" />
+      <workItem from="1604073365199" duration="59000" />
+      <workItem from="1604315491558" duration="6092000" />
+      <workItem from="1604328771365" duration="150000" />
+      <workItem from="1604484686112" duration="526000" />
+      <workItem from="1604485456322" duration="1115000" />
+      <workItem from="1604505499431" duration="334000" />
+      <workItem from="1604574419729" duration="731000" />
+      <workItem from="1604657798600" duration="3706000" />
+      <workItem from="1604745250865" duration="7045000" />
     </task>
     <servers />
   </component>
@@ -89,17 +102,17 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="388" y="111" key="#PHP/0.23.1440.877@0.23.1440.877" timestamp="1603642648736" />
-    <state x="539" y="392" key="NewPhpFileDialog" timestamp="1603704594183">
+    <state x="539" y="392" key="NewPhpFileDialog" timestamp="1604747412085">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="539" y="392" key="NewPhpFileDialog/0.23.1440.877@0.23.1440.877" timestamp="1603704594183" />
+    <state x="539" y="392" key="NewPhpFileDialog/0.23.1440.877@0.23.1440.877" timestamp="1604747412085" />
     <state x="221" y="100" key="SettingsEditor" timestamp="1603674941593">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="221" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1603674941593" />
-    <state x="594" y="23" width="604" height="822" key="find.popup" timestamp="1603977858938">
+    <state x="594" y="23" width="604" height="822" key="find.popup" timestamp="1604321714211">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="594" y="23" width="604" height="822" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1603977858938" />
+    <state x="594" y="23" width="604" height="822" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1604321714211" />
   </component>
 </project>

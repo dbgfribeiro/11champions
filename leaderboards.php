@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="css/leaderboards.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/myscript.js"></script>
-    <title>11Champions</title>
+    <title>Classificações</title>
 </head>
 <body>
 
 <header>
     <nav>
         <div class="nav-menu">
-            <a href="index.html" id="logo">1<span>1</a>
+            <a href="index.php" id="logo"><img src="img/icon.png" alt="logo"></a>
             <div class="hamburguer" onclick="myFunction(this)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
@@ -34,7 +34,7 @@
             <div class="menu-desktop">
                 <ul>
                     <a href="leaderboards.php"><li>CLASSIFICAÇÃO</li></a>
-                    <a href="/"><li>ÚLTIMOS RESULTADOS</li></a>
+                    <a href="results.php"><li>ÚLTIMOS RESULTADOS</li></a>
                     <a href="/"><li>CALENDÁRIO</li></a>
                     <a href="scorers.php"><li>MARCADORES</li></a>
                 </ul>
@@ -42,7 +42,7 @@
             <div class="menu-mobile" id="mobile" >
                 <ul>
                     <a href="leaderboards.php"><li>CLASSIFICAÇÃO</li></a>
-                    <a href="/"><li>ÚLTIMOS RESULTADOS</li></a>
+                    <a href="results.php"><li>ÚLTIMOS RESULTADOS</li></a>
                     <a href="/"><li>CALENDÁRIO</li></a>
                     <a href="scorers.php"><li>MARCADORES</li></a>
                 </ul>

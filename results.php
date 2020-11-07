@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/scorers.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/myscript.js"></script>
-    <title>Marcadores</title>
+    <title>últimos Resultados</title>
 </head>
 <body>
 <header>
@@ -55,7 +55,7 @@
 
 <main>
     <div class="container">
-        <h1>MARCADORES</h1>
+        <h1>ÚLTIMOS RESULTADOS</h1>
 
         <?php
 
@@ -63,23 +63,6 @@
         $conn = pg_connect($str);
         $result = pg_query($conn, " SELECT  *  FROM player;");
 
-
-        while ($row = pg_fetch_assoc($result) ){
-            echo
-                "
-                 <div class='player-stats'>
-                    <div class='player-info'>
-                        <h2>".$row['name']."</h2>
-                        <h4>".$row['team']."</h4>
-                        <p>".$row['position']."</p>
-                    </div>
-                    <div class='player-goals'>
-                        <h1>".$row['goals']."</h1>
-                    </div>
-                 </div>
-                "
-            ;
-        }
         ?>
     </div>
 </main>

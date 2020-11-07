@@ -11,3 +11,13 @@ $(document).ready(function(){
         $searchBar.fadeIn("fast");
     });
 });
+
+$(document).ready(function(){
+    var $intro = $("#intro");
+    var $login = $("#login");
+
+    setTimeout(function(){
+        $intro.fadeOut(300);
+        $login.fadeIn(700);
+        }, 1500)
+});
