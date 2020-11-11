@@ -13,7 +13,7 @@
 <header>
     <nav>
         <div class="nav-menu">
-            <a href="index.php" id="logo"><img src="img/icon.png" alt="logo"></a>
+            <a href="index.html" id="logo"><img src="img/icon.png" alt="logo"></a>
             <div class="hamburguer" onclick="myFunction(this)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
@@ -60,7 +60,7 @@
         <?php
 
         $str = "dbname=11test user=postgres password=postgres host=localhost port=5432";
-        $conn = pg_connect($str);
+        $conn = pg_connect($str) or die("Erro na ligação");
         $result = pg_query($conn, " SELECT  *  FROM player;");
 
 

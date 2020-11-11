@@ -13,7 +13,7 @@
 <header>
     <nav>
         <div class="nav-menu">
-            <a href="index.php" id="logo"><img src="img/icon.png" alt="logo"></a>
+            <a href="index.html" id="logo"><img src="img/icon.png" alt="logo"></a>
             <div class="hamburguer" onclick="myFunction(this)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>

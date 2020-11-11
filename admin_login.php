@@ -34,8 +34,8 @@
         echo"
             <div class='main'>
                 <div class='error'>
-                    <p>Dados errados!</p>
-                    <a href='http://localhost:63342/11champions/index.php'>Tentar novamente</a>
+                    <p>Dados incorretos!</p>
+                    <a href='http://localhost:63342/11champions/index.html'>Tentar novamente</a>
                 </div>
             </div>
            ";

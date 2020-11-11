@@ -21,13 +21,23 @@
         </section>
 
         <section id="login">
+
+
             <div class="main">
-                <p>Log in</p>
-                <form class="form1" method="POST" action="process.php">
-                    <input class="un" type="email" placeholder="E-mail" name="email" required>
-                    <input class="pass" type="password" placeholder="Password" name="password" required>
-                    <input class="submit" type="submit" name="submit" placeholder="Log in" value="Log in">
-                </form>
+                <div class='user_kind' id="userKind">
+                    <p>Tipo de utilizador:</p>
+                    <a href='http://localhost:63342/11champions/leaderboards.php'>Visitante</a>
+                    <a href='#' id="admin">Administrador</a>
+                </div>
+
+                <div class="admin-login" id="adminLogin">
+                    <p>Log in</p>
+                    <form class="form1" method="POST" action="admin_login.php">
+                        <input class="un" type="email" placeholder="E-mail" name="email" required>
+                        <input class="pass" type="password" placeholder="Password" name="password" required>
+                        <input class="submit" type="submit" name="submit" placeholder="Log in" value="Log in">
+                    </form>
+                </div>
             </div>
         </section>
 

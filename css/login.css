@@ -62,16 +62,7 @@
     font-weight: bold;
     font-size: 2em;
 }
-.error{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding: 0;
-    width: 100%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-.error a{
+.main a{
     border-radius: 15px;
     background: #FBE204;
     transition: 0.3s;
@@ -84,8 +75,31 @@
     display: block;
     width: 35%;
 }
-.error a:hover{
+.main a:hover{
     opacity: 0.6;
+}
+.admin-login {
+    display: none;
+}
+.user_kind p{
+    padding-bottom: 13%;
+}
+.user_kind a{
+    width: 70%;
+    padding: 15px;
+
+}
+.user_kind a:last-child{
+   background: #ebebeb;
+}
+.error{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0;
+    width: 100%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 .un {
     width: 100%;
