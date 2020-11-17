@@ -39,13 +39,14 @@ body{
     margin: 0 auto;
     justify-content: center;
     align-items: center;
+    width:81%;
     height: 100%;
 }
 .menu-desktop ul a{
     background-color: #333a3d;
     border-radius: 0 0 15px 15px;
-    width: 20%;
     display: block;
+    width: 100%;
     height: 100%;
     bottom: 0;
     margin: 0 0.2%;
@@ -240,7 +241,7 @@ button:focus {outline:0;}
 
 /*--------------------QUERIES--------------------*/
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 800px) {
     .menu-desktop{
         display: none;
     }

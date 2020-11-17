@@ -1,0 +1,63 @@
+/*--------------------TEAMS--------------------*/
+.team-container{
+    background: #242E35;
+    width: 80%;
+    height: 20%;
+    margin: 0 auto;
+    border-radius: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.team-container a{
+    text-decoration: none;
+    color: #FBE204;
+    font-size: 3em;
+    font-weight: 600;
+    position: absolute;
+    right: 4%;
+    margin: 0;
+    z-index:10;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.team-container img{
+    position: absolute;
+    top: 0;
+    right: 4%;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    height: 100%;
+    opacity: 0.05;
+    object-fit: cover ;
+}
+
+.team-info{
+    color: #ebebeb;
+    padding: 0 4%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.team-info h2{
+    font-size: 26px;
+}
+
+.team-players{
+    border-radius: 0 0 15px 15px;
+    background-color: #333a3d;
+    width: 80%;
+    opacity: 0;
+    transform: translate(0,-45%);
+    transition: 0.5s;
+    margin: -2% auto -150px auto;
+    z-index: -2;
+}
+.team-players ul{
+    padding: 6% 4% 4%;
+}

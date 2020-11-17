@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/scorers.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/myscript.js"></script>
-    <title>últimos Resultados</title>
+    <title>Calendário</title>
 </head>
 <body>
 <header>
@@ -18,13 +18,10 @@
 
 <main>
     <div class="container">
-        <h1>ÚLTIMOS RESULTADOS</h1>
+        <h1>CALENDÁRIO</h1>
 
         <?php
 
-        $str = "dbname=11champions user=postgres password=postgres host=localhost port=5432";
-        $conn = pg_connect($str);
-        $result = pg_query($conn, " SELECT  *  FROM player;");
 
         ?>
     </div>

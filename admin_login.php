@@ -19,7 +19,7 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $str = "dbname=11test user=postgres password=postgres host=localhost port=5432";
+    $str = "dbname=11champions user=postgres password=postgres host=localhost port=5432";
     $conn = pg_connect($str);
     $result = pg_query($conn, "SELECT * FROM admin where email='$email' and password='$password'")
     or die("Failed to query database".pg_error());
@@ -28,7 +28,7 @@
 
     if($row['email'] == $email && $row['password'] == $password){
         session_start();
-        header("Location: http://localhost:63342/11champions/leaderboards.php");
+        header("Location: http://localhost:63342/11champions/teams.php");
     }
     else{
         echo"

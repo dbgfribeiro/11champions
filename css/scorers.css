@@ -2,17 +2,13 @@
 .player-stats{
     background: #242E35;
     width: 80%;
-    margin: 0 auto 4% auto;
+    margin: 0 auto 2% auto;
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
-    padding: 4%;
+    padding: 2% 4%;
     color: #ebebeb;
 }
-.player-info{
-    height: fit-content;
-    margin-top: 3%;
-}
 .player-goals h1{
-    font-size: 6em;
+    font-size: 4em;
 }
