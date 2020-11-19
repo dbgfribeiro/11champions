@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,20 +25,33 @@
     $str = "dbname=11champions user=postgres password=postgres host=localhost port=5432";
     $conn = pg_connect($str);
     $result = pg_query($conn, "SELECT * FROM admin where email='$email' and password='$password'")
-    or die("Failed to query database".pg_error());
+    or die("Erro ao conectar!".pg_error());
 
     $row = pg_fetch_array($result);
 
     if($row['email'] == $email && $row['password'] == $password){
         session_start();
-        header("Location: http://localhost:63342/11champions/teams.php");
+        if (isset($_SESSION['count'])){
+            $_SESSION['count'] ++;
+        }
+        else{
+            $_SESSION['count'] = 1;
+        }
+        echo"
+            <div class='main'>
+                <div class='welcome'>
+                    <p>Bem vindo <span style='color: #FBE204'>Administrador!</span></p>
+                </div>
+            </div>
+           ";
+        header("refresh:2;url=http://localhost:63342/11champions/teams_admin.php");
     }
     else{
         echo"
             <div class='main'>
                 <div class='error'>
                     <p>Dados incorretos!</p>
-                    <a href='http://localhost:63342/11champions/index.html'>Tentar novamente</a>
+                    <a href='http://localhost:63342/11champions/index.php'>Tentar novamente</a>
                 </div>
             </div>
            ";

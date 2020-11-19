@@ -1,28 +1,8 @@
-/*--------------------TEAMS--------------------*/
 .team-container{
-    background: #242E35;
     width: 80%;
-    height: 20%;
-    margin: 0 auto;
-    border-radius: 15px;
+    margin: 4% auto;
     position: relative;
-    z-index: 2;
 }
-
-.team-container a{
-    text-decoration: none;
-    color: #FBE204;
-    font-size: 3em;
-    font-weight: 600;
-    position: absolute;
-    right: 4%;
-    margin: 0;
-    z-index:10;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
 .team-container img{
     position: absolute;
     top: 0;
@@ -34,30 +14,77 @@
     opacity: 0.05;
     object-fit: cover ;
 }
-
-.team-info{
-    color: #ebebeb;
-    padding: 0 4%;
-    margin: 0;
+.team-container a{
+    text-decoration: none;
+    color: #FBE204;
+    font-size: 3em;
+    font-weight: 600;
     position: absolute;
+    right: 4%;
+    margin: 0;
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-.team-info h2{
+.team-info{
+    background: #242E35;
+    color: #ebebeb;
+    height: 20%;
+    margin: 0 auto;
+    border-radius: 15px;
+    position: relative;
+}
+.team-desc{
+    color: #ebebeb;
+    position: absolute;
+    margin: 0;
+    left: 4%;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.team-desc h2{
     font-size: 26px;
 }
 
 .team-players{
     border-radius: 0 0 15px 15px;
     background-color: #333a3d;
-    width: 80%;
-    opacity: 0;
-    transform: translate(0,-45%);
+    width: 92%;
+    display: none;
     transition: 0.5s;
-    margin: -2% auto -150px auto;
-    z-index: -2;
+    margin-top: -4%;
+    padding: 8% 4% 4% 4%;
+    justify-content: space-between;
 }
-.team-players ul{
-    padding: 6% 4% 4%;
+.team-players h3{
+    color: #1f252b;
+}
+.team-players ul li{
+    list-style: none;
+    color: #ebebeb;
+    margin: 0;
+    margin-top: 20px;
+}
+.team-players span{
+    color: #1f252b;
+}
+
+.team-container:hover > .team-players{
+    display: flex;
+}
+
+/*------------------------ADMIN-------------------*/
+.team-players button{
+    position: absolute;
+    right: 6%;
+    bottom: 8%;
+    padding: 8px 25px;
+    background-color: #FBE204;
+    border-style: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.team-players button:hover{
+opacity: 0.5;
 }

@@ -92,7 +92,7 @@
 .user_kind a:last-child{
    background: #ebebeb;
 }
-.error{
+.error, .welcome{
     position: absolute;
     top: 50%;
     left: 50%;

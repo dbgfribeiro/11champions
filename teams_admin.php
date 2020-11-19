@@ -19,7 +19,7 @@
 <main>
 
     <?php
-        echo "<a id='logout' href='index.php'>Entrar</a>";
+    echo "<a id='logout' href='index.php'>Sair</a>";
     ?>
 
     <div class="container">
@@ -97,6 +97,7 @@
 
 
             echo "
+                    <button>Editar</button>
                 </div>
             </div>
           ";

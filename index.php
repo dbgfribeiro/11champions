@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +13,10 @@
     <title>11 Eleven</title>
 </head>
 <body>
+    <?php
+    session_unset();
+    session_destroy();
+    ?>
     <main>
         <div class="back">
             <img src="img/logo11.png" alt="logo-11eleven">

@@ -239,7 +239,30 @@ button:focus {outline:0;}
     padding-bottom:4% ;
 }
 
+/*--------------------CONTAINER--------------------*/
+#logout {
+    position: fixed;
+    right: 1%;
+    bottom: 3%;
+    color: #101010;
+    background-color: #FBE204;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 8px 25px;
+    border-radius: 15px;
+
+}
+#logout:hover{
+    opacity: 0.5;
+}
+
 /*--------------------QUERIES--------------------*/
+
+@media only screen and (max-width: 1000px) {
+    .menu-desktop ul li{
+        font-size: 12px;
+    }
+}
 
 @media only screen and (max-width: 800px) {
     .menu-desktop{
