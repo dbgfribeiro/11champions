@@ -43,7 +43,7 @@ body{
     height: 100%;
 }
 .menu-desktop ul a{
-    background-color: #333a3d;
+    background-color: #242E35;
     border-radius: 0 0 15px 15px;
     display: block;
     width: 100%;
@@ -230,13 +230,13 @@ button:focus {outline:0;}
     min-height: 100vh;
     border-radius: 25px;
     margin: 4% auto;
-    padding: 4% 0;
+    padding: 5% 0;
 }
 .container h1{
     font-size: 2em;
     color: #ebebeb;
     text-align: center;
-    padding-bottom:4% ;
+    padding-bottom:5% ;
 }
 
 /*--------------------CONTAINER--------------------*/

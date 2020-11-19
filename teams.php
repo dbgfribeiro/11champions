@@ -32,7 +32,6 @@
 
         $teamsResult = pg_query($conn, "SELECT teams.name as team_name , teams.id as team_id, matches_played from teams");
 
-
         while ($row = pg_fetch_assoc($teamsResult) ){
             $logo_src = 0;
             include 'logos_loader.php';
@@ -58,7 +57,7 @@
             echo "<ul>";
             echo "<h3>Avançados</h3>";
             while ($playerRow = pg_fetch_assoc($avancadoResult) ){
-                echo "<li>".$playerRow['player_name']." <br><span>".$playerRow['age']."anos</span></li>";
+                echo "<li>".$playerRow['player_name']." <br><span>".$playerRow['age']." anos</span></li>";
             }
             echo "</ul>";
 
@@ -69,7 +68,7 @@
             echo "<ul>";
             echo "<h3>Médios</h3>";
             while ($playerRow = pg_fetch_assoc($medioResult) ){
-                echo "<li>".$playerRow['player_name']." <br><span>".$playerRow['age']."anos</span></li>";
+                echo "<li>".$playerRow['player_name']." <br><span>".$playerRow['age']." anos</span></li>";
             }
             echo "</ul>";
 
@@ -80,7 +79,7 @@
             echo "<ul>";
             echo "<h3>Defesas</h3>";
             while ($playerRow = pg_fetch_assoc($defesaResult) ){
-                echo "<li>".$playerRow['player_name']." <br><span>".$playerRow['age']."anos</span></li>";
+                echo "<li>".$playerRow['player_name']." <br><span>".$playerRow['age']." anos</span></li>";
             }
             echo "</ul>";
 
@@ -91,7 +90,7 @@
             echo "<ul>";
             echo "<h3>Guarda Redes</h3>";
             while ($playerRow = pg_fetch_assoc($grResult) ){
-                echo "<li>".$playerRow['player_name']." <br><span>".$playerRow['age']."anos</span></li>";
+                echo "<li>".$playerRow['player_name']." <br><span>".$playerRow['age']." anos</span></li>";
             }
             echo "</ul>";
 

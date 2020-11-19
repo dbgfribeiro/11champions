@@ -22,6 +22,17 @@
     echo "<a id='logout' href='index.php'>Sair</a>";
     ?>
 
+    <?php
+    echo "
+            <div class='add-player' id='addPlayer'>
+                <div class='add-player-back' id='addPlayerBack'></div>
+                <div class='add-player-form'>
+                
+                </div>
+            </div>
+        ";
+    ?>
+
     <div class="container">
         <h1>EQUIPAS</h1>
 
@@ -97,16 +108,16 @@
 
 
             echo "
-                    <button>Editar</button>
+                    <button id='editPlayer'>Editar</button>
                 </div>
             </div>
           ";
         }
 
+
         ?>
-
-
     </div>
+
 </main>
 <footer>
 

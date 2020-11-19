@@ -31,6 +31,17 @@ $(document).ready(function(){
 });
 
 
+$(document).ready(function(){
+    $("#editPlayer").click(function() {
+        $("#addPlayer").fadeIn();
+    });
+    $("#addPlayerBack").click(function() {
+        $("#addPlayer").fadeOut();
+    });
+});
+
+
+
 /*
 
 window.addEventListener("click", function(e){
@@ -48,3 +59,4 @@ window.addEventListener("click", function(e){
 });
 
  */
+

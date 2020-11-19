@@ -3,6 +3,9 @@
     margin: 4% auto;
     position: relative;
 }
+.team-container:nth-child(2){
+    margin-top: 0;
+}
 .team-container img{
     position: absolute;
     top: 0;
@@ -11,7 +14,7 @@
     padding: 0;
     width: 50%;
     height: 100%;
-    opacity: 0.05;
+    opacity: 0.1;
     object-fit: cover ;
 }
 .team-container a{
@@ -25,7 +28,19 @@
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+    visibility: visible;
 }
+.team-container a:after{
+    position: absolute;
+    right: 4%;
+    margin: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    visibility: hidden;
+    content: "-";
+}
+
 .team-info{
     background: #242E35;
     color: #ebebeb;
@@ -52,13 +67,14 @@
     background-color: #333a3d;
     width: 92%;
     display: none;
-    transition: 0.5s;
     margin-top: -4%;
     padding: 8% 4% 4% 4%;
     justify-content: space-between;
 }
 .team-players h3{
-    color: #1f252b;
+    color: #ebebeb;
+    border-bottom: 2px solid #FBE204;
+    width: fit-content;
 }
 .team-players ul li{
     list-style: none;
@@ -67,11 +83,19 @@
     margin-top: 20px;
 }
 .team-players span{
-    color: #1f252b;
+    color: rgba(255,255,255,0.3);
+    font-weight: lighter;
 }
 
 .team-container:hover > .team-players{
     display: flex;
+}
+
+.team-container:hover.team-container a{
+    visibility: hidden;
+}
+.team-container:hover.team-container a:after{
+    visibility: visible;
 }
 
 /*------------------------ADMIN-------------------*/
@@ -87,4 +111,34 @@
 }
 .team-players button:hover{
 opacity: 0.5;
+}
+
+.add-player{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+    z-index: 10;
+    display: none;
+}
+
+.add-player-back{
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.add-player-form{
+    background-color: #ebebeb;
+    width: 50%;
+    height: 400px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    padding: 5%;
 }
