@@ -3,19 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="b67b20f0-620b-41ce-9455-db35cdcbc551" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin_login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin_delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin_delete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin_login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/calendar_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/calendar_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/header_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/header_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/leaderboards_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/leaderboards_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/results_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/results_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/scorers_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/scorers_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/teams_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/teams_admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/calendar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/teams.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/teams.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/myscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/myscript.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/leaderboards.php" beforeDir="false" afterPath="$PROJECT_DIR$/leaderboards.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logos_loader.php" beforeDir="false" afterPath="$PROJECT_DIR$/logos_loader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results.php" beforeDir="false" afterPath="$PROJECT_DIR$/results.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scorers.php" beforeDir="false" afterPath="$PROJECT_DIR$/scorers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-connection.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/teams.php" beforeDir="false" afterPath="$PROJECT_DIR$/teams.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/teams_admin.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +122,8 @@
       <workItem from="1605887149936" duration="2722000" />
       <workItem from="1605903067811" duration="5917000" />
       <workItem from="1605917727560" duration="201000" />
-      <workItem from="1605919044848" duration="3204000" />
+      <workItem from="1605919044848" duration="4725000" />
+      <workItem from="1605962925877" duration="6535000" />
     </task>
     <servers />
   </component>
@@ -172,7 +178,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/myscript.js</url>
           <line>10</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

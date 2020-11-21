@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
+textarea, select, input, button { outline: none; }
 body{
     background-color: #101010;
 }
@@ -256,7 +257,6 @@ button:focus {outline:0;}
     transition: 0.3s;
     padding: 8px 25px;
     border-radius: 15px;
-
 }
 #logout:hover{
     opacity: 0.5;
@@ -276,6 +276,9 @@ button:focus {outline:0;}
     }
     .hamburguer {
         display: inline-block;
+    }
+    .menu-mobile ul a{
+        font-size: 1.5em;
     }
     .container {
         margin: 10% auto;

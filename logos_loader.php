@@ -1,4 +1,5 @@
 <?php
+    /*this file loads all teams logos so they can be included in teams page*/
 
     if ($row['team_name'] == 'Académica') {
         $logo_src = 'img/logos/academica.png';

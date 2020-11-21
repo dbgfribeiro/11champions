@@ -1,4 +1,7 @@
 <nav>
+
+    <!-- This file displays nav so it can be included in all the pages-->
+
     <div class="nav-menu">
         <a href="index.php" id="logo"><img src="img/icon.png" alt="logo"></a>
         <div class="hamburguer" onclick="myFunction(this)">

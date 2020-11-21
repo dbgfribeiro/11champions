@@ -2,6 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="../image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="../image/png" sizes="16x16" href="../img/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/scorers.css">
@@ -32,6 +34,7 @@
         $conn = pg_connect($str) or die("Erro na ligação");
         $result = pg_query($conn, " SELECT  *  FROM player ORDER BY name ASC;");
 
+        /*players organized by name asc bc there is no goals scored yet*/
 
         while ($row = pg_fetch_assoc($result) ){
             echo
@@ -46,8 +49,7 @@
                         <h1>0</h1>
                     </div>
                  </div>
-                "
-            ;
+                ";
         }
         ?>
     </div>
