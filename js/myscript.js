@@ -31,32 +31,10 @@ $(document).ready(function(){
 });
 
 
-$(document).ready(function(){
-    $("#editPlayer").click(function() {
-        $("#addPlayer").fadeIn();
-    });
-    $("#addPlayerBack").click(function() {
-        $("#addPlayer").fadeOut();
-    });
-});
-
-
-
-/*
-
-window.addEventListener("click", function(e){
-        if (document.getElementById("open").contains(e.target) || document.getElementById("players").contains(e.target)){
-            document.getElementById("players").style.opacity = 100;
-            document.getElementById("players").style.top= '100%';
-            document.getElementById("open").innerText= '-';
-        }
-        else {
-            document.getElementById("players").style.opacity = 0;
-            document.getElementById("players").style.top= 0;
-            document.getElementById("players").style.transform = 'translate(0,-45%);';
-            document.getElementById("open").innerText= '+';
-    }
-});
-
- */
-
+//add player form
+function add(){
+    $("#addPlayer").fadeIn();
+}
+function added(){
+    $("#addPlayer").fadeOut();
+}

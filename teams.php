@@ -53,7 +53,8 @@
 
             $avancadoResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
-                                                    where teams_id='$row[team_id]' and position='Avançado'");
+                                                    where teams_id='$row[team_id]' and position='Avançado'
+                                                    order by player_name asc ");
             echo "<ul>";
             echo "<h3>Avançados</h3>";
             while ($playerRow = pg_fetch_assoc($avancadoResult) ){
@@ -64,7 +65,8 @@
 
             $medioResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
-                                                    where teams_id='$row[team_id]' and position='Médio'");
+                                                    where teams_id='$row[team_id]' and position='Médio'
+                                                    order by player_name asc ");
             echo "<ul>";
             echo "<h3>Médios</h3>";
             while ($playerRow = pg_fetch_assoc($medioResult) ){
@@ -75,7 +77,8 @@
 
             $defesaResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
-                                                    where teams_id='$row[team_id]' and position='Defesa'");
+                                                    where teams_id='$row[team_id]' and position='Defesa'
+                                                    order by player_name asc ");
             echo "<ul>";
             echo "<h3>Defesas</h3>";
             while ($playerRow = pg_fetch_assoc($defesaResult) ){
@@ -86,7 +89,8 @@
 
             $grResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
-                                                    where teams_id='$row[team_id]' and position='Guarda Redes'");
+                                                    where teams_id='$row[team_id]' and position='Guarda Redes'
+                                                    order by player_name asc ");
             echo "<ul>";
             echo "<h3>Guarda Redes</h3>";
             while ($playerRow = pg_fetch_assoc($grResult) ){

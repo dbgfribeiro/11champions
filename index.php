@@ -39,10 +39,10 @@ session_start();
 
                 <div class="admin-login" id="adminLogin">
                     <p>Log in</p>
-                    <form class="form1" method="POST" action="admin_login.php">
+                    <form class="form1" method="POST" action="admin/admin_login.php">
                         <input class="un" type="email" placeholder="E-mail" name="email" required>
                         <input class="pass" type="password" placeholder="Password" name="password" required>
-                        <input class="submit" type="submit" name="submit" placeholder="Log in" value="Log in">
+                        <input class="submit" type="submit" name="submit" value="Log in">
                     </form>
                 </div>
             </div>

@@ -6,14 +6,14 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
     <title>11 Eleven</title>
 </head>
 <body>
 <main>
     <div class="back">
-        <img src="img/logo11.png" alt="logo-11eleven">
+        <img src="../img/logo11.png" alt="logo-11eleven">
     </div>
 
 
@@ -44,7 +44,7 @@ session_start();
                 </div>
             </div>
            ";
-        header("refresh:2;url=http://localhost:63342/11champions/teams_admin.php");
+        header("refresh:2;url=http://localhost:63342/11champions/admin/teams_admin.php");
     }
     else{
         echo"

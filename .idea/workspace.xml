@@ -3,19 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="b67b20f0-620b-41ce-9455-db35cdcbc551" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/calendar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/teams.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/teams.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/logos/academica.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/logos/academica.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/logos/benfica.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/logos/benfica.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/logos/boavista.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/logos/boavista.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/logos/braga.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/logos/braga.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/logos/porto.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/logos/porto.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/logos/rioave.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/logos/rioave.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/logos/sporting.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/logos/sporting.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/logos/vitoria.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/logos/vitoria.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/myscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/myscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaderboards.php" beforeDir="false" afterPath="$PROJECT_DIR$/leaderboards.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results.php" beforeDir="false" afterPath="$PROJECT_DIR$/results.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scorers.php" beforeDir="false" afterPath="$PROJECT_DIR$/scorers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-connection.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/teams.php" beforeDir="false" afterPath="$PROJECT_DIR$/teams.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/teams_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/teams_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teams_admin.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +58,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -110,7 +110,14 @@
       <workItem from="1605651695932" duration="7287000" />
       <workItem from="1605696810162" duration="1019000" />
       <workItem from="1605702320971" duration="23159000" />
-      <workItem from="1605776928519" duration="3533000" />
+      <workItem from="1605776928519" duration="15333000" />
+      <workItem from="1605815214165" duration="339000" />
+      <workItem from="1605816267600" duration="928000" />
+      <workItem from="1605885269212" duration="40000" />
+      <workItem from="1605887149936" duration="2722000" />
+      <workItem from="1605903067811" duration="5917000" />
+      <workItem from="1605917727560" duration="201000" />
+      <workItem from="1605919044848" duration="3204000" />
     </task>
     <servers />
   </component>
@@ -118,33 +125,57 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="125" key="#CLI_Interpreters" timestamp="1605445588615">
+    <state x="308" y="125" key="#CLI_Interpreters" timestamp="1605788833407">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="308" y="123" key="#CLI_Interpreters/0.23.1440.877@0.23.1440.877" timestamp="1605109970370" />
-    <state x="308" y="125" key="#CLI_Interpreters/0.25.1440.875@0.25.1440.875" timestamp="1605445588615" />
+    <state x="308" y="125" key="#CLI_Interpreters/0.25.1440.875@0.25.1440.875" timestamp="1605788833407" />
     <state x="388" y="111" key="#PHP" timestamp="1603642648736">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="388" y="111" key="#PHP/0.23.1440.877@0.23.1440.877" timestamp="1603642648736" />
-    <state x="458" y="213" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605657466076">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state x="2051" y="-16" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605905413019">
+      <screen x="1440" y="-243" width="1920" height="1055" />
     </state>
+    <state x="2051" y="-16" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.875/1440.-243.1920.1055@1440.-243.1920.1055" timestamp="1605905413019" />
     <state x="458" y="213" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.875@0.25.1440.875" timestamp="1605657466076" />
-    <state x="539" y="393" key="NewPhpFileDialog" timestamp="1605656137059">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state x="2159" y="201" key="NewPhpFileDialog" timestamp="1605905012277">
+      <screen x="1440" y="-243" width="1920" height="1055" />
     </state>
     <state x="539" y="392" key="NewPhpFileDialog/0.23.1440.877@0.23.1440.877" timestamp="1604747412085" />
+    <state x="2159" y="201" key="NewPhpFileDialog/0.25.1440.875/1440.-243.1920.1055@1440.-243.1920.1055" timestamp="1605905012277" />
     <state x="539" y="393" key="NewPhpFileDialog/0.25.1440.875@0.25.1440.875" timestamp="1605656137059" />
-    <state x="221" y="102" key="SettingsEditor" timestamp="1605777150713">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state x="1735" y="-150" key="SettingsEditor" timestamp="1605808928323">
+      <screen x="1440" y="-243" width="1920" height="1055" />
     </state>
     <state x="221" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1605109971153" />
-    <state x="221" y="102" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1605777150713" />
-    <state x="583" y="79" width="604" height="821" key="find.popup" timestamp="1605741415229">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state x="1735" y="-150" key="SettingsEditor/0.25.1440.875/1440.-243.1920.1055@1440.-243.1920.1055" timestamp="1605808928323" />
+    <state x="221" y="102" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1605788834158" />
+    <state x="1794" y="-172" width="1566" height="1036" key="dock-window-1" timestamp="1605919128172">
+      <screen x="1440" y="-243" width="1920" height="1055" />
+    </state>
+    <state x="1794" y="-172" width="1566" height="1036" key="dock-window-1/0.25.1440.875/1440.-243.1920.1055@1440.-243.1920.1055" timestamp="1605919128172" />
+    <state x="2217" y="-178" width="806" height="990" key="find.popup" timestamp="1605922406798">
+      <screen x="1440" y="-243" width="1920" height="1055" />
     </state>
     <state x="583" y="78" width="604" height="822" key="find.popup/0.23.1440.877@0.23.1440.877" timestamp="1605103191964" />
+    <state x="2217" y="-178" width="806" height="990" key="find.popup/0.25.1440.875/1440.-243.1920.1055@1440.-243.1920.1055" timestamp="1605922406798" />
     <state x="583" y="79" width="604" height="821" key="find.popup/0.25.1440.875@0.25.1440.875" timestamp="1605741415229" />
+    <state x="2065" y="-9" width="670" height="58" key="search.everywhere.popup" timestamp="1605920796623">
+      <screen x="1440" y="-243" width="1920" height="1055" />
+    </state>
+    <state x="2065" y="-9" width="670" height="58" key="search.everywhere.popup/0.25.1440.875/1440.-243.1920.1055@1440.-243.1920.1055" timestamp="1605920796623" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/myscript.js</url>
+          <line>10</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

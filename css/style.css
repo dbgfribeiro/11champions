@@ -238,6 +238,12 @@ button:focus {outline:0;}
     text-align: center;
     padding-bottom:5% ;
 }
+.container .no-data{
+    font-size: 2em;
+    color: #FBE204;
+    text-align: center;
+    padding-bottom:5% ;
+}
 
 /*--------------------CONTAINER--------------------*/
 #logout {
