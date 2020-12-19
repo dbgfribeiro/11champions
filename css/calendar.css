@@ -1,0 +1,67 @@
+.round-container{
+    width: 80%;
+    margin: 0 auto;
+}
+.month {
+    width: fit-content;
+    background: #242E35;
+    border-radius: 5px;
+    text-align: right;
+    color: #FBE204;
+    float: right;
+    margin: 1%;
+    display: flex;
+}
+
+.calendar-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0.5% auto;
+    position: relative;
+}
+
+.calendar-match {
+    padding: 34% 0 30% 0;
+    background: #242E35;
+    text-align: center;
+    color: #ebebeb;
+    margin: 2%;
+    border-radius: 15px;
+    position: relative;
+    justify-content: center;
+    transition: 0.3s;
+}
+.calendar-match:hover{
+    box-shadow: 0 10px 15px -10px rgba(1,1,1,0.5);
+    transform: scale(1.03,1.03);
+}
+.calendar-match h3{
+    font-weight: lighter;
+    color: #FBE204;
+}
+.calendar-match h2{
+    font-size: 16px;
+}
+.match-day{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    top: 4%;
+    color: #FBE204;
+}
+.match-day p:first-child{
+    color: #ebebeb;
+    margin-left: 4%;
+}
+.match-day p:last-child{
+    margin-right: 4%;
+}
+.team p{
+    font-weight: 800;
+}
+
+@media (min-width: 800px) {
+    .calendar-container  { grid-template-columns: repeat(4, 1fr); }
+}

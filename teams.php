@@ -2,6 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/teams.css">
@@ -30,6 +32,8 @@
         $str = "dbname=11champions user=postgres password=postgres host=localhost port=5432";
         $conn = pg_connect($str);
 
+
+        /*----------get table teams info-----------*/
         $teamsResult = pg_query($conn, "SELECT teams.name as team_name , teams.id as team_id, matches_played from teams");
 
         while ($row = pg_fetch_assoc($teamsResult) ){
@@ -51,6 +55,8 @@
                 ";
 
 
+
+            /*----------get position 'Avançado' from player-----------*/
             $avancadoResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
                                                     where teams_id='$row[team_id]' and position='Avançado'
@@ -63,6 +69,8 @@
             echo "</ul>";
 
 
+
+            /*----------get position 'Médio' from player-----------*/
             $medioResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
                                                     where teams_id='$row[team_id]' and position='Médio'
@@ -75,6 +83,8 @@
             echo "</ul>";
 
 
+
+            /*----------get position 'Defesa' from player-----------*/
             $defesaResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
                                                     where teams_id='$row[team_id]' and position='Defesa'
@@ -87,6 +97,8 @@
             echo "</ul>";
 
 
+
+            /*----------get position 'Guarda Redes' from player-----------*/
             $grResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
                                                     where teams_id='$row[team_id]' and position='Guarda Redes'

@@ -72,7 +72,7 @@
     opacity: 0;
     z-index: -2;
     display: flex;
-    transition-timing-function: ease-in;
+    transition-timing-function: ease-in-out;
     transition: 0.5s;
     padding: 8% 4% 4% 4%;
     justify-content: space-between;
@@ -116,6 +116,28 @@
 .team-container:hover.team-container #open:after{
     visibility: visible;
 }
+
+/*--------------------QUERIES--------------------*/
+
+@media only screen and (max-width: 1000px) {
+    .team-container:hover > .team-players{
+        display: block;
+    }
+    .team-players{
+        padding-bottom: 14%;
+    }
+    .team-players ul{
+        padding-top: 8%;
+        text-align: center;
+        line-height: 20px;
+    }
+    .team-players h3{
+        text-align: center;
+        margin: 0 auto;
+        width: 50%;
+    }
+}
+
 
 
 
@@ -224,10 +246,13 @@
         width: 70%;
         padding: 15% 5%;
     }
-
 }
 @media only screen and (max-width: 1000px) {
-    .team-container:hover > .team-players{
-        display: block;
+    .team-players button{
+        bottom: 2%;
+        right: -4%;
+        margin-top: 50%;
+        z-index: 10;
     }
 }
+
