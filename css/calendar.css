@@ -105,7 +105,6 @@
 .team p{
     font-weight: 800;
 }
-
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
     .calendar-container  { grid-template-columns: repeat(4, 1fr); }
 }
