@@ -3,15 +3,59 @@
     margin: 0 auto;
 }
 .month {
-    width: fit-content;
-    background: #242E35;
-    border-radius: 5px;
-    text-align: right;
+    width: 99%;
     color: #FBE204;
-    float: right;
-    margin: 1%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.month span{
+    font-weight: lighter;
+    color: #ebebeb;
+    font-size: 12px;
+    margin-left: 4%;
+}
+.arrows{
+    width: 10%;
     display: flex;
 }
+
+#arrow-back , #arrow-front{
+    background: #242E35;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+    margin: 0 2%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.arrow{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: solid #ebebeb;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transition: 0.2s;
+    margin: -10% 0 0 -10% ;
+}
+.back{
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+.front{
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+#arrow-back:hover , #arrow-front:hover{
+    box-shadow: 0 10px 15px -10px rgba(1,1,1,0.5);
+    transform: scale(1.03,1.03);
+    background: #333a3d;
+}
+
 
 .calendar-container {
     display: grid;
@@ -23,23 +67,20 @@
 
 .calendar-match {
     padding: 34% 0 30% 0;
-    background: #242E35;
+    background: #333a3d;
     text-align: center;
     color: #ebebeb;
     margin: 2%;
     border-radius: 15px;
     position: relative;
     justify-content: center;
-    transition: 0.3s;
 }
-.calendar-match:hover{
-    box-shadow: 0 10px 15px -10px rgba(1,1,1,0.5);
-    transform: scale(1.03,1.03);
-}
+
 .calendar-match h3{
     font-weight: lighter;
     color: #FBE204;
 }
+
 .calendar-match h2{
     font-size: 16px;
 }
@@ -51,9 +92,12 @@
     top: 4%;
     color: #FBE204;
 }
-.match-day p:first-child{
+.round{
     color: #ebebeb;
     margin-left: 4%;
+    background: #242E35;
+    padding: 2% 4%;
+    border-radius: 5px;
 }
 .match-day p:last-child{
     margin-right: 4%;

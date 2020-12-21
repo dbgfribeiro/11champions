@@ -34,7 +34,9 @@
 
 
         $matchNov = pg_query($conn, "SELECT * FROM matches where '2020-11-01' <= day and day < '2020-12-01'") or die;
-        $matchDez = pg_query($conn, "SELECT * FROM matches where '2020-12-01' <= day and day < '2021-01-01'") or die;
+        $matchDec = pg_query($conn, "SELECT * FROM matches where '2020-12-01' <= day and day < '2021-01-01'") or die;
+        $matchJan = pg_query($conn, "SELECT * FROM matches where '2021-01-01' <= day and day < '2021-02-01'") or die;
+        $matchFeb = pg_query($conn, "SELECT * FROM matches where '2021-02-01' <= day and day < '2021-03-01'") or die;
 
 
         $homeTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE teams.id = matches.teams_id") or die;
@@ -43,24 +45,26 @@
 
         echo "<div class='round-container' id='nov'>
                 <div class='month'>
-                    <a href='#'>-</a>
-                    <h2>NOVEMBRO</h2>
-                    <a href='#'>+</a>
+                    <h2>NOVEMBRO<span>1/4</span></h2>
+                    <div class='arrows'>
+                        <p href='#' id='arrow-back'><i class='arrow back'></i></p>
+                        <p href='#' id='arrow-front'><i class='arrow front'></i></p>
+                    </div>
                 </div>
                     <div class='calendar-container'>";
                 while ($match = pg_fetch_assoc($matchNov) ) {
                     $home = pg_fetch_array($homeTeam);
                     $away = pg_fetch_array($awayTeam);
                     echo "
-                        <div class='calendar-match'>
+                        <div class='calendar-match' content=".$match['result'].">
                             <div class='match-day'>
-                                <p>".$match['round']."ª jornada</p>
+                                <p class='round'>".$match['round']."ª jornada</p>
                                 <p>".date("d/m", strtotime($match['day']))."</p>
                             </div>
                             <div class='home-team team'>
                                 <p>".$home['name']."</p>
                             </div>
-                            <h3>".$match['result']."</h3>
+                            <h3 content=".$match['result'].">".$match['result']."</h3>
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
@@ -71,22 +75,28 @@
                  </div>";
 
 
-        echo "<div class='round-container' id='dec' style='display: none'>
-                <h2>DEZEMBRO</h2>
+        echo "<div class='round-container' id='dec'>
+                <div class='month'>
+                    <h2>DEZEMBRO<span>2/4</span></h2>
+                    <div class='arrows'>
+                        <p id='arrow-back'><i class='arrow back'></i></p>
+                        <p id='arrow-front'><i class='arrow front'></i></p>
+                    </div>
+                </div>
                     <div class='calendar-container'>";
-        while ($match = pg_fetch_assoc($matchDez) ) {
+        while ($match = pg_fetch_assoc($matchDec) ) {
             $home = pg_fetch_array($homeTeam);
             $away = pg_fetch_array($awayTeam);
             echo "
-                        <div class='calendar-match'>
+                        <div class='calendar-match' content=".$match['result'].">
                             <div class='match-day'>
-                                <p>".$match['round']."ª jornada</p>
+                                <p class='round'>".$match['round']."ª jornada</p>
                                 <p>".date("d/m", strtotime($match['day']))."</p>
                             </div>
                             <div class='home-team team'>
                                 <p>".$home['name']."</p>
                             </div>
-                            <h3>".$match['result']."</h3>
+                            <h3 content=".$match['result'].">".$match['result']."</h3>
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
@@ -94,8 +104,71 @@
                     ";
         }
         echo "</div>
-                 </div>";
+             </div>";
 
+        echo "<div class='round-container' id='jan'>
+                <div class='month'>
+                    <h2>JANEIRO<span>3/4</span></h2>
+                    <div class='arrows'>
+                        <p id='arrow-back'><i class='arrow back'></i></p>
+                        <p id='arrow-front'><i class='arrow front'></i></p>
+                    </div>
+                </div>
+                <div class='calendar-container'>";
+        while ($match = pg_fetch_assoc($matchJan) ) {
+            $home = pg_fetch_array($homeTeam);
+            $away = pg_fetch_array($awayTeam);
+            echo "
+                        <div class='calendar-match' content=".$match['result'].">
+                            <div class='match-day'>
+                                <p class='round'>".$match['round']."ª jornada</p>
+                                <p>".date("d/m", strtotime($match['day']))."</p>
+                            </div>
+                            <div class='home-team team'>
+                                <p>".$home['name']."</p>
+                            </div>
+                            <h3 content=".$match['result'].">".$match['result']."</h3>
+                            <div class='away-team team'>
+                                <p>".$away['name']."</p>
+                            </div>
+                        </div>
+                    ";
+        }
+        echo "</div>
+             </div>";
+
+
+
+        echo "<div class='round-container' id='fev'>
+                <div class='month'>
+                    <h2>FEVEREIRO<span>4/4</span></h2>
+                    <div class='arrows'>
+                        <p id='arrow-back'><i class='arrow back'></i></p>
+                        <p id='arrow-front'><i class='arrow front'></i></p>
+                    </div>
+                </div>
+                <div class='calendar-container'>";
+        while ($match = pg_fetch_assoc($matchFeb) ) {
+            $home = pg_fetch_array($homeTeam);
+            $away = pg_fetch_array($awayTeam);
+            echo "
+                        <div class='calendar-match' content=".$match['result'].">
+                            <div class='match-day'>
+                                <p class='round'>".$match['round']."ª jornada</p>
+                                <p>".date("d/m", strtotime($match['day']))."</p>
+                            </div>
+                            <div class='home-team team'>
+                                <p>".$home['name']."</p>
+                            </div>
+                            <h3 content=".$match['result'].">".$match['result']."</h3>
+                            <div class='away-team team'>
+                                <p>".$away['name']."</p>
+                            </div>
+                        </div>
+                    ";
+        }
+        echo "</div>
+             </div>";
 
         ?>
 
@@ -103,6 +176,6 @@
 
 
 </main>
-
+<script src="js/calendar.js"></script>
 </body>
 </html>
