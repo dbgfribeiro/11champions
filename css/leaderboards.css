@@ -10,6 +10,7 @@ table th{
     width: 5%;
     padding: 1% 0 1% 1%;
     border-radius: 5px;
+    position: relative;
 }
 table th:first-child{
     width: 3%;
@@ -28,3 +29,24 @@ table td:first-child{
     text-align: center;
     padding: 0.5% 0 0.5% 0%;
 }
+.arrow {
+    border: solid #FBE204;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transition: 0.2s;
+  }
+  
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+  .arrow:hover{
+    opacity: 20%;
+  }

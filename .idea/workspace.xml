@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b20f0-620b-41ce-9455-db35cdcbc551" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/calendar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/calendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results.php" beforeDir="false" afterPath="$PROJECT_DIR$/results.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,11 +134,33 @@
       <workItem from="1608373341754" duration="10405000" />
       <workItem from="1608407238566" duration="672000" />
       <workItem from="1608547613292" duration="15929000" />
+      <workItem from="1608736240668" duration="2803000" />
+      <workItem from="1608745416618" duration="2738000" />
+      <workItem from="1608989344163" duration="251000" />
     </task>
+    <task id="LOCAL-00001" summary="Merge branch 'main' of https://github.com/dbgfribeiro/11champions into main&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;calendar.php&#10;#&#9;css/style.css">
+      <created>1608580365474</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608580365474</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Merge branch 'main' of https://github.com/dbgfribeiro/11champions into main&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;calendar.php&#10;#&#9;css/style.css">
+      <created>1608580431927</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608580431927</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branch 'main' of https://github.com/dbgfribeiro/11champions into main&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;calendar.php&#10;#&#9;css/style.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'main' of https://github.com/dbgfribeiro/11champions into main&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;calendar.php&#10;#&#9;css/style.css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="308" y="125" key="#CLI_Interpreters" timestamp="1606008289688">
@@ -152,6 +178,10 @@
     </state>
     <state x="2051" y="-16" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.875/1440.-243.1920.1055@1440.-243.1920.1055" timestamp="1605905413019" />
     <state x="458" y="213" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.875@0.25.1440.875" timestamp="1605657466076" />
+    <state x="213" y="25" key="CommitChangelistDialog2" timestamp="1608580431722">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="213" y="25" key="CommitChangelistDialog2/0.25.1440.875@0.25.1440.875" timestamp="1608580431722" />
     <state x="2159" y="201" key="NewPhpFileDialog" timestamp="1605905012277">
       <screen x="1440" y="-243" width="1920" height="1055" />
     </state>
@@ -165,6 +195,10 @@
     <state x="221" y="102" key="SettingsEditor/0.25.1440.875/1440.-243.1920.1055@0.25.1440.875" timestamp="1606008290407" />
     <state x="1735" y="-150" key="SettingsEditor/0.25.1440.875/1440.-243.1920.1055@1440.-243.1920.1055" timestamp="1605808928323" />
     <state x="221" y="102" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1605788834158" />
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2" timestamp="1608580433938">
+      <screen x="0" y="25" width="1440" height="875" />
+    </state>
+    <state x="320" y="186" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1608580433938" />
     <state x="1794" y="-172" width="1566" height="1036" key="dock-window-1" timestamp="1605919128172">
       <screen x="1440" y="-243" width="1920" height="1055" />
     </state>

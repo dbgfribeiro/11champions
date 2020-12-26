@@ -67,7 +67,7 @@
 
 .calendar-match {
     padding: 34% 0 30% 0;
-    background: #333a3d;
+    background: #242E35;
     text-align: center;
     color: #ebebeb;
     margin: 2%;
@@ -76,7 +76,11 @@
     justify-content: center;
 }
 
-.calendar-match h3{
+.result{
+    display: flex;
+    justify-content: center;
+}
+.result h3{
     font-weight: lighter;
     color: #FBE204;
 }
@@ -95,7 +99,7 @@
 .round{
     color: #ebebeb;
     margin-left: 4%;
-    background: #242E35;
+    background: #333A3D;
     padding: 2% 4%;
     border-radius: 5px;
 }

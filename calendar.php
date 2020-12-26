@@ -39,8 +39,8 @@
         $matchFeb = pg_query($conn, "SELECT * FROM matches where '2021-02-01' <= day and day < '2021-03-01'") or die;
 
 
-        $homeTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE teams.id = matches.teams_id") or die;
-        $awayTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE teams.id = matches.teams_id1") or die;
+        $homeTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE matches.teams_id = teams.id") or die;
+        $awayTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE matches.teams_id1 = teams.id") or die;
 
 
         echo "<div class='round-container' id='nov'>
@@ -52,6 +52,7 @@
                     </div>
                 </div>
                     <div class='calendar-container'>";
+
                 while ($match = pg_fetch_assoc($matchNov) ) {
                     $home = pg_fetch_array($homeTeam);
                     $away = pg_fetch_array($awayTeam);
@@ -64,7 +65,11 @@
                             <div class='home-team team'>
                                 <p>".$home['name']."</p>
                             </div>
-                            <h3 content=".$match['result'].">".$match['result']."</h3>
+                            <div class='result'>
+                                <h3 content=".$match['goal_t1'].">".$match['goal_t1']."</h3>
+                                <h3 class='sep'>:</h3>
+                                <h3 content=".$match['goal_t2'].">".$match['goal_t2']."</h3>
+                            </div>
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
@@ -96,7 +101,11 @@
                             <div class='home-team team'>
                                 <p>".$home['name']."</p>
                             </div>
-                            <h3 content=".$match['result'].">".$match['result']."</h3>
+                            <div class='result'>
+                                <h3 content=".$match['goal_t1'].">".$match['goal_t1']."</h3>
+                                <h3 class='sep'>:</h3>
+                                <h3 content=".$match['goal_t2'].">".$match['goal_t2']."</h3>
+                            </div>
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
@@ -127,7 +136,11 @@
                             <div class='home-team team'>
                                 <p>".$home['name']."</p>
                             </div>
-                            <h3 content=".$match['result'].">".$match['result']."</h3>
+                            <div class='result'>
+                                <h3 content=".$match['goal_t1'].">".$match['goal_t1']."</h3>
+                                <h3 class='sep'>:</h3>
+                                <h3 content=".$match['goal_t2'].">".$match['goal_t2']."</h3>
+                            </div>
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
@@ -160,7 +173,11 @@
                             <div class='home-team team'>
                                 <p>".$home['name']."</p>
                             </div>
-                            <h3 content=".$match['result'].">".$match['result']."</h3>
+                            <div class='result'>
+                                <h3 content=".$match['goal_t1'].">".$match['goal_t1']."</h3>
+                                <h3 class='sep'>:</h3>
+                                <h3 content=".$match['goal_t2'].">".$match['goal_t2']."</h3>
+                            </div>
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>

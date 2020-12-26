@@ -1,17 +1,23 @@
-let matches = document.getElementsByClassName('calendar-match');
-let rounds = document.getElementsByClassName('round');
+/*------------------CALENDAR-------------------*/
+let result = document.querySelectorAll(".result h3");
 
-for (let x = 0; x < matches.length; x++) {
-    let match = matches[x];
-    let target = match.getAttribute('content');
+result.forEach(function(r){
+    let target = r.getAttribute('content');
 
-    if (target !== 'vs'){
-        match.style.backgroundColor ="#242E35";
-        rounds[x].style.backgroundColor= "#333a3d";
+    if (target == ''){ 
+
+        let parent = r.parentElement.parentElement;
+        parent.style.backgroundColor ="#333A3D";
+
+        let round = parent.querySelector(".round");
+        round.style.backgroundColor ="#242E35";
+
+        let goals = parent.querySelector(".sep");
+        goals.innerHTML = "vs"
     }
-}
+});
 
-//calendar
+
 var now = new Date();
 var nowMonth = now.getMonth()+1;
 
@@ -123,3 +129,13 @@ if (nowMonth == 2){
         matchFev.style.display = "block";
     }
 }
+
+
+/*------------------LAST MATCHES-------------------*/
+$( ".round" ).each( function () {
+    var round = $(this);
+    if ( round.children().length == 1 ) {
+        round.css("display", "none");
+    }
+});
+
