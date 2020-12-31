@@ -39,5 +39,3 @@ function add(){
 function added(){
     $("#addPlayer").fadeOut();
 }
-
-

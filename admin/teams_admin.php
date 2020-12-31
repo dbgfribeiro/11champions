@@ -41,6 +41,7 @@
                 <div class='add-player-back' onclick='added()'></div>
                 <div class='add-player-form'>
                     <p>Adicionar Jogador</p>
+
                     <form method='get'>
                     
                         <select class='tm' name='team' required>
@@ -63,6 +64,7 @@
     echo"               </select>   
                
                         <input class='pa' type='number' placeholder='Idade' name='age' required>
+
                         <input class='submit' type='submit' name='submit' value='Submeter'>
                         
                     </form>
@@ -82,8 +84,7 @@
     $data=pg_query($conn,$query);
 
     if ($data){
-
-        header("refresh:3;url=http://localhost:63342/11champions/admin/teams_admin.php");
+        header("refresh:3;url=../admin/teams_admin.php");
         echo"
             <div class='add-player' style='display: block'>
                 <div class='add-player-back' onclick='added()'></div>
@@ -136,7 +137,7 @@
             while ($playerRow = pg_fetch_assoc($avancadoResult) ){
                 echo "<li>".$playerRow['player_name']."<br>
                       <span>".$playerRow['age']." anos</span>
-                      <a id='delete' href='admin_delete.php?rn=$playerRow[player_id]'>x</a> <!-- button to delete player -->
+                      <a id='delete' href='admin_delete.php?rn=$playerRow[player_id]'>x</a>  <!-- button to delete player -->
                       </li>";
             }
             echo "</ul>";

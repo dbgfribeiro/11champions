@@ -37,11 +37,15 @@
         $teamsResult = pg_query($conn, "SELECT teams.name as team_name , teams.id as team_id, matches_played from teams");
 
         while ($row = pg_fetch_assoc($teamsResult) ){
+            
             $logo_src = 0;
             include 'logos_loader.php';
             echo   "
 
             <div class='team-container'>
+
+
+
                 <div class='team-info'>
                     <div class='team-desc'>
                     <h2>".$row['team_name']."</h2>

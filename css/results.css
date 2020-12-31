@@ -4,7 +4,7 @@
 }
 .round{
     width: 80%;
-    margin: 4% auto;
+    margin: 2% auto;
     position: relative;
     background: #242E35;
     color: #ebebeb;
@@ -22,21 +22,56 @@
 }
 
 .match{
+    margin: 1% 0;
+    border-radius: 18px;
+    border: 6px solid #333a3d;
+}
+.match-info{
     display: flex;
     justify-content: space-around;
     padding: 2% 0;
     border-radius: 10px;
     background: #242E35;
     transition: 0.3s;
+    position: relative;
 }
-.match:nth-child(even) {
+
+.match-stats{
     background: #333a3d;
+    justify-content: space-around;
+    padding: 5% 0 4% 0;
+    margin-top: -2%;
+    z-index: -1;
+    border-radius: 0 0 10px 10px;
 }
 .result{
     color: #FBE204;
     position: absolute;
     display: flex;
 }
-.match:hover{
-    padding: 2% 0  15% 0;
+
+
+/*---------------ADMIN--------------*/
+.result form{
+    color: #FBE204;
+    display: flex;
+    justify-content: center;
 }
+
+.result form input {
+    width: 10%;
+    background-color: #ebebeb;
+    font-weight: 700;
+    font-size: 14px;
+    color: #242E35;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    border-style: none;
+    margin: 0 2%;
+    text-align: right;
+}
+.result form input[placeholder]{
+    text-align: right;
+}
+

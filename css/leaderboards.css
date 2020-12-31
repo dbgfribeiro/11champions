@@ -1,14 +1,14 @@
 /*--------------------LEADERBOARDS--------------------*/
 table{
     color: #ebebeb;
-    margin: auto;
+    margin: 0 auto;
     width: 80%;
 }
 table th{
     background: #242E35;
-    text-align: left;
+    text-align: center;
     width: 5%;
-    padding: 1% 0 1% 1%;
+    padding: 1% 0;
     border-radius: 5px;
     position: relative;
 }
@@ -19,34 +19,51 @@ table th:first-child{
 }
 table th:nth-child(2){
     width: 30%;
+    text-align: left;
+    padding: 1% 2%;
+}
+table td:nth-child(2){
+  text-align: left;
+  padding: 0 2%;
 }
 table td{
-    background: #242E35;
+    background: #333a3d;
     border-radius: 5px;
-    padding: 0.5% 0 0.5% 1%;
+    text-align: center;
 }
 table td:first-child{
     text-align: center;
     padding: 0.5% 0 0.5% 0%;
 }
-.arrow {
-    border: solid #FBE204;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 3px;
+table td:first-child{
+  background: #242E35;
+}
+table a{
+  color: #FBE204;
+  text-decoration: none;
+  transition: 0.2s;
+}
+table a:hover{
+  opacity: 0.5;
+}
+  /*---------------ADMIN---------------*/
+
+  .leaderboard-edit {
+    margin: 2% auto;
+    width: 80%;
+  }
+  .leaderboard-edit input{
+    padding: 1% 3%;
+    border-radius: 7.5px;
+    border-style: none;
+    background-color: #ebebeb;
+    cursor: pointer;
     transition: 0.2s;
   }
-  
-  .up {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
+  .leaderboard-edit input[name='update']{
+    background-color: #FBE204;
+    margin-left: 1%;
   }
-  
-  .down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-  }
-
-  .arrow:hover{
-    opacity: 20%;
+  .leaderboard-edit input:hover{
+    opacity: 0.7;
   }

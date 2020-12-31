@@ -46,14 +46,14 @@ session_start();
                 </div>
             </div>
            ";
-        header("refresh:2;url=http://localhost:63342/11champions/admin/teams_admin.php");
+        header("refresh:2;url=../admin/teams_admin.php");
     }
     else{
         echo"
             <div class='main'>
                 <div class='error'>
                     <p>Dados incorretos!</p>
-                    <a href='http://localhost:63342/11champions/index.php'>Tentar novamente</a>
+                    <a href='../index.php'>Tentar novamente</a>
                 </div>
             </div>
            ";

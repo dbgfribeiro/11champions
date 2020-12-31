@@ -31,9 +31,11 @@
 
         $str = "dbname=11champions user=postgres password=postgres host=localhost port=5432";
         $conn = pg_connect($str) or die("Erro na ligação");
-        $result = pg_query($conn, " SELECT  *  FROM player ORDER BY name ASC;");
+        $result = pg_query($conn, " SELECT  *  FROM player
+                                    LEFT JOIN goals
+                                    ON player.id = goals_player_id
+                                    ORDER BY name ASC");
 
-        /*players organized by name asc bc there is no goals scored yet*/
 
         while ($row = pg_fetch_assoc($result) ){
             echo
@@ -45,7 +47,7 @@
                         <p>".$row['position']."</p>
                     </div>
                     <div class='player-goals'>
-                        <h1>0</h1>
+                        <h1></h1>
                     </div>
                  </div>
                 ";

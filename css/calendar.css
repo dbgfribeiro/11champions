@@ -1,3 +1,4 @@
+
 .round-container{
     width: 80%;
     margin: 0 auto;
@@ -111,4 +112,149 @@
 }
 @media (min-width: 1000px) {
     .calendar-container  { grid-template-columns: repeat(4, 1fr); }
+}
+
+#add{
+    text-decoration: none;
+    background: #FBE204;
+    color: #101010;
+    padding: 0 8px;
+    font-size: 18px;
+    border-radius: 5px;
+    height: fit-content;
+    transition: 0.2s;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+#add:hover{
+    opacity: 50%;
+}
+
+.add-match{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+    z-index: 10;
+    display: none;
+    left: 0;
+}
+
+.add-match-back{
+    background-color: rgba(0,0,0,0.75);
+    filter: blur(20px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.add-match-form{
+    background-color: #1f252b;
+    box-shadow: 0px 5px 25px 5px rgba(1,1,1,0.25);
+    width: 50%;
+    height: auto;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    padding: 5%;
+}
+
+.add-match-form p {
+    text-align: center;
+    color: #ebebeb;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+/*------------------ADMIN---------------------*/
+
+.add-match-form form {
+    padding-top: 40px;
+}
+
+.ro , .dt, .ht, .at {
+    width: 100%;
+    color: #ebebeb;
+    font-weight: 700;
+    font-size: 14px;
+    background-color: #333a3d;
+    padding: 10px 20px;
+    border-radius: 15px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 27px;
+}
+.ht, .at {
+    width: 46%;
+}
+.teams{
+    display: flex;
+    justify-content: space-between;
+}
+.teams p{
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.submit {
+    cursor: pointer;
+    border-radius: 15px;
+    background: #FBE204;
+    border: 0;
+    transition: 0.3s;
+    margin: 0 auto;
+    color: #1f252b;
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+}
+.submit:hover{
+    opacity: 0.6;
+}
+.new-match{
+    background-color: #1f252b;
+    box-shadow: 0px 5px 25px 5px rgba(1,1,1,0.25);
+    width: 50%;
+    height: auto;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    padding: 5%;
+    text-align: center;
+    z-index: 10;
+}
+
+.new-match p{
+    text-align: center;
+    color: #ebebeb;
+    font-weight: bold;
+    font-size: 2em;
+    color: #ebebeb;
+    margin: 2% 0;
+}
+.new-info p{
+    margin:0;
+    margin-bottom: 4%;
+    font-size: 1em;
+    font-weight: lighter;
+}
+
+.new-match a{
+    text-decoration: none;
+    padding: 1% 5%;
+    border-radius: 5px;
+    color: #1f252b;
+    background-color: #FBE204;
 }

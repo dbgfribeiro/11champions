@@ -36,7 +36,7 @@
                 </div>
             </div>
          ";
-        header("refresh:2;url=http://localhost:63342/11champions/admin/teams_admin.php");
+        header("refresh:2;url=../admin/teams_admin.php");
     }
     else{
         echo"

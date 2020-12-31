@@ -139,3 +139,73 @@ $( ".round" ).each( function () {
     }
 });
 
+
+
+/*------------------ADD MATCHES TO CALENDAR-------------------*/
+function add(){
+    $("#addMatch").fadeIn();
+}
+function added(){
+    $("#addMatch").fadeOut();
+}
+
+function dateSelect(sel) {
+    document.getElementById("date").disabled = false;
+
+    if(sel.options[sel.selectedIndex].text == 14){
+        document.getElementById("date").setAttribute('min', '2021-02-27');
+        document.getElementById("date").setAttribute('max', '2021-02-28');
+    }
+    if(sel.options[sel.selectedIndex].text == 13){
+        document.getElementById("date").setAttribute('min', '2021-02-20');
+        document.getElementById("date").setAttribute('max', '2021-02-23');
+    }
+    if(sel.options[sel.selectedIndex].text == 12){
+        document.getElementById("date").setAttribute('min', '2021-02-14');
+        document.getElementById("date").setAttribute('max', '2021-02-16');
+    }
+    if(sel.options[sel.selectedIndex].text == 11){
+        document.getElementById("date").setAttribute('min', '2021-02-07');
+        document.getElementById("date").setAttribute('max', '2021-02-09');
+    }
+    if(sel.options[sel.selectedIndex].text == 10){
+        document.getElementById("date").setAttribute('min', '2021-02-01');
+        document.getElementById("date").setAttribute('max', '2021-02-03');
+    }
+    if(sel.options[sel.selectedIndex].text == 9){
+        document.getElementById("date").setAttribute('min', '2021-01-24');
+        document.getElementById("date").setAttribute('max', '2021-01-26');
+    }
+    if(sel.options[sel.selectedIndex].text == 8){
+        document.getElementById("date").setAttribute('min', '2021-01-17');
+        document.getElementById("date").setAttribute('max', '2021-01-19');
+    }
+    if(sel.options[sel.selectedIndex].text == 7){
+        document.getElementById("date").setAttribute('min', '2021-01-10');
+        document.getElementById("date").setAttribute('max', '2021-01-12');
+    }
+    if(sel.options[sel.selectedIndex].text == 6){
+        document.getElementById("date").setAttribute('min', '2021-01-03');
+        document.getElementById("date").setAttribute('max', '2021-01-05');
+    }
+    if(sel.options[sel.selectedIndex].text == 5){
+        document.getElementById("date").setAttribute('min', '2020-12-27');
+        document.getElementById("date").setAttribute('max', '2020-12-29');
+    }
+    if(sel.options[sel.selectedIndex].text == 4){
+        document.getElementById("date").setAttribute('min', '2020-12-20');
+        document.getElementById("date").setAttribute('max', '2020-12-22');
+    }
+    if(sel.options[sel.selectedIndex].text == 3){
+        document.getElementById("date").setAttribute('min', '2020-12-13');
+        document.getElementById("date").setAttribute('max', '2020-12-15');
+    }
+    if(sel.options[sel.selectedIndex].text == 2){
+        document.getElementById("date").setAttribute('min', '2020-12-06');
+        document.getElementById("date").setAttribute('max', '2020-12-08');
+    }
+    if(sel.options[sel.selectedIndex].text == 1){
+        document.getElementById("date").setAttribute('min', '2020-11-28');
+        document.getElementById("date").setAttribute('max', '2020-11-30');
+    }
+}

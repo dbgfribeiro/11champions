@@ -34,7 +34,7 @@
             error_reporting(0);
 
 
-            $rounds=pg_query($conn, "SELECT MAX(round) AS all FROM matches") or die;
+            $rounds = pg_query($conn, "SELECT MAX(round) AS all FROM matches") or die;
             $row = pg_fetch_array( $rounds );
             $allRounds = $row['all'];
 
@@ -44,6 +44,8 @@
             echo "
             <div class='rounds'>
             ";
+
+
             for($i=1; $i<$allRounds+1; $i++){
                     $roundResult = pg_query($conn, "SELECT * FROM matches WHERE round='$i' AND goal_t1 IS NOT NULL AND goal_t2 IS NOT NULL") or die;
                     $allMatches=pg_affected_rows($roundResult);
@@ -57,13 +59,20 @@
                             $row_jornada=pg_fetch_assoc($roundResult);
                         echo "
                             <div class='match'>
-                                <p>".$home['name']."</p>
-                                <div class='result'>
-                                    <h3>".$row_jornada['goal_t1']."</h3>
-                                    <h3>:</h3>
-                                    <h3>".$row_jornada['goal_t2']."</h3>
+                                <div class='match-info'>
+                                    <h4>".$home['name']."</h4>
+                                    <div class='result'>
+                                        <h3>".$row_jornada['goal_t1']."</h3>
+                                        <h3>:</h3>
+                                        <h3>".$row_jornada['goal_t2']."</h3>
+                                    </div>
+                                    <h4>".$away['name']."</h4>
                                 </div>
-                                <p>".$away['name']."</p>
+
+                                <div class='match-stats'>
+                                    <h4>min</h4>
+                                    <p>Nome Jogador</p>
+                                </div>
                             </div>
                             ";
                 }

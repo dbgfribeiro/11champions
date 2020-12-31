@@ -33,14 +33,11 @@
 
 
 
-        $matchNov = pg_query($conn, "SELECT * FROM matches where '2020-11-01' <= day and day < '2020-12-01'") or die;
-        $matchDec = pg_query($conn, "SELECT * FROM matches where '2020-12-01' <= day and day < '2021-01-01'") or die;
-        $matchJan = pg_query($conn, "SELECT * FROM matches where '2021-01-01' <= day and day < '2021-02-01'") or die;
-        $matchFeb = pg_query($conn, "SELECT * FROM matches where '2021-02-01' <= day and day < '2021-03-01'") or die;
+        $matchNov = pg_query($conn, "SELECT * FROM matches where '2020-11-01' <= day AND day < '2020-12-01' ORDER BY day ASC") or die;
+        $matchDec = pg_query($conn, "SELECT * FROM matches where '2020-12-01' <= day AND day < '2021-01-01' ORDER BY day ASC") or die;
+        $matchJan = pg_query($conn, "SELECT * FROM matches where '2021-01-01' <= day AND day < '2021-02-01' ORDER BY day ASC") or die;
+        $matchFeb = pg_query($conn, "SELECT * FROM matches where '2021-02-01' <= day AND day < '2021-03-01' ORDER BY day ASC") or die;
 
-
-        $homeTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE matches.teams_id = teams.id") or die;
-        $awayTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE matches.teams_id1 = teams.id") or die;
 
 
         echo "<div class='round-container' id='nov'>
@@ -54,6 +51,8 @@
                     <div class='calendar-container'>";
 
                 while ($match = pg_fetch_assoc($matchNov) ) {
+                    $homeTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE $match[teams_id] = teams.id") or die;
+                    $awayTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE $match[teams_id1] = teams.id") or die;
                     $home = pg_fetch_array($homeTeam);
                     $away = pg_fetch_array($awayTeam);
                     echo "
@@ -90,6 +89,8 @@
                 </div>
                     <div class='calendar-container'>";
         while ($match = pg_fetch_assoc($matchDec) ) {
+            $homeTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE $match[teams_id] = teams.id") or die;
+            $awayTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE $match[teams_id1] = teams.id") or die;
             $home = pg_fetch_array($homeTeam);
             $away = pg_fetch_array($awayTeam);
             echo "
@@ -125,6 +126,8 @@
                 </div>
                 <div class='calendar-container'>";
         while ($match = pg_fetch_assoc($matchJan) ) {
+            $homeTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE $match[teams_id] = teams.id") or die;
+            $awayTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE $match[teams_id1] = teams.id") or die;
             $home = pg_fetch_array($homeTeam);
             $away = pg_fetch_array($awayTeam);
             echo "
@@ -162,6 +165,8 @@
                 </div>
                 <div class='calendar-container'>";
         while ($match = pg_fetch_assoc($matchFeb) ) {
+            $homeTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE $match[teams_id] = teams.id") or die;
+            $awayTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE $match[teams_id1] = teams.id") or die;
             $home = pg_fetch_array($homeTeam);
             $away = pg_fetch_array($awayTeam);
             echo "
