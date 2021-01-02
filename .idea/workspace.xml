@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b67b20f0-620b-41ce-9455-db35cdcbc551" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/calendar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/calendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin_delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin_delete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/leaderboards_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/leaderboards_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/results_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/results_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/scorers_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/scorers_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/teams_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/teams_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/results.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/results.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/scorers.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/scorers.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results.php" beforeDir="false" afterPath="$PROJECT_DIR$/results.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scorers.php" beforeDir="false" afterPath="$PROJECT_DIR$/scorers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teams.php" beforeDir="false" afterPath="$PROJECT_DIR$/teams.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +143,7 @@
       <workItem from="1608736240668" duration="2803000" />
       <workItem from="1608745416618" duration="2738000" />
       <workItem from="1608989344163" duration="251000" />
+      <workItem from="1609530166665" duration="598000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'main' of https://github.com/dbgfribeiro/11champions into main&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;calendar.php&#10;#&#9;css/style.css">
       <created>1608580365474</created>

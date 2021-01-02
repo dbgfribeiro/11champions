@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/login.css">
-    <title>11 Eleven</title>
+    <title>11Champions</title>
 </head>
 <body>
 <main>
@@ -46,7 +46,7 @@
                 </div>
             </div>
          ";
-        header("refresh:2;url=http://localhost:63342/11champions/admin/teams_admin.php");
+         header("refresh:2;url=../admin/teams_admin.php");
     }
 
     ?>

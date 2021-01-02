@@ -31,27 +31,41 @@
 
         $str = "dbname=11champions user=postgres password=postgres host=localhost port=5432";
         $conn = pg_connect($str) or die("Erro na ligação");
-        $result = pg_query($conn, " SELECT  *  FROM player
-                                    LEFT JOIN goals
-                                    ON player.id = goals_player_id
-                                    ORDER BY name ASC");
+
+        $goalResult = pg_query($conn, " SELECT player.teams_id AS tid, player.position AS pos, player.name AS pname,
+                                        COUNT(goals.player_id) AS ngoals
+                                        FROM player
+                                        LEFT JOIN goals ON goals.player_id = player.id
+                                        GROUP BY player.teams_id, player.position, player.name
+                                        ORDER BY ngoals DESC");
 
 
-        while ($row = pg_fetch_assoc($result) ){
+
+        echo "
+        <div class='scorers-container'>";
+        while ($row = pg_fetch_assoc($goalResult) ){
+
+            $teamResult = pg_query($conn, "SELECT teams.name AS tname FROM teams, player WHERE $row[tid] = teams.id") or die;
+            $team = pg_fetch_array($teamResult);
+
+            if($row['ngoals'] >= 1){
             echo
                 "
                  <div class='player-stats'>
                     <div class='player-info'>
-                        <h2>".$row['name']."</h2>
-                        <p>".$row['age']."</p>
-                        <p>".$row['position']."</p>
+                        <h2>".$row['pname']."</h2>
+                        <p>".$row['pos']."</p>
+                        <h3>".$team['tname']."</h3>
                     </div>
                     <div class='player-goals'>
-                        <h1></h1>
+                        <h1>".$row['ngoals']."</h1>
+                        <p>golos</p>
                     </div>
                  </div>
                 ";
+            }
         }
+        echo "</div>";
         ?>
     </div>
 </main>

@@ -24,7 +24,8 @@
 .match{
     margin: 1% 0;
     border-radius: 18px;
-    border: 6px solid #333a3d;
+    border: 6px solid #1f252b;
+    background: #1f252b;
 }
 .match-info{
     display: flex;
@@ -35,22 +36,36 @@
     transition: 0.3s;
     position: relative;
 }
-
-.match-stats{
-    background: #333a3d;
-    justify-content: space-around;
-    padding: 5% 0 4% 0;
-    margin-top: -2%;
-    z-index: -1;
-    border-radius: 0 0 10px 10px;
-}
 .result{
     color: #FBE204;
     position: absolute;
     display: flex;
 }
-
-
+.match-stats{
+    background: #1f252b;
+    padding: 5% 0 4% 0;
+    margin-top: -2%;
+    z-index: -1;
+    border-radius: 0 0 10px 10px;
+    margin:0 auto;
+    width: 80%;
+}
+.goal{
+    display: flex;
+    margin: 2%;
+    width: 82%;
+    margin: 0.5% auto;
+    padding: 1%;
+    border-bottom: 2px solid #242E35;
+}
+.goal h4{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.g-away {
+    flex-direction: row-reverse;
+}
 /*---------------ADMIN--------------*/
 .result form{
     color: #FBE204;
@@ -58,20 +73,69 @@
     justify-content: center;
 }
 
-.result form input {
+.result form input[type='number'] {
     width: 10%;
     background-color: #ebebeb;
     font-weight: 700;
     font-size: 14px;
     color: #242E35;
-    border-radius: 5px;
     outline: none;
     box-sizing: border-box;
     border-style: none;
+    border-radius: 5px;
     margin: 0 2%;
     text-align: right;
 }
 .result form input[placeholder]{
     text-align: right;
 }
+.result form button {
+    width: 8%;
+    background-color: #FBE204;
+    border-radius: 5px;
+    border-style: none;
+    cursor: pointer;
+} 
+.result form button:hover {
+    opacity: 0.75;
+}
 
+.goal input[name='minute']{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.match-stats form{
+    margin: -2% 0 2% 0;
+}
+.match-stats form input,.match-stats form select,.match-stats form button{
+    width: 22%;
+    background-color: #ebebeb;
+    color: #242E35;
+    outline: none;
+    box-sizing: border-box;
+    border-style: none;
+    border-radius: 5px;
+    margin: -2% 0 2% 0;
+    padding: 1%;
+}
+.match-stats form input{
+    width: 12%;
+}
+.match-stats form button{
+    width: 12%;
+    background-color: #FBE204;
+    cursor: pointer;
+}
+.match-stats form button:hover{
+    opacity: 0.75;
+}
+.match-stats #delete{
+    color: #FBE204;
+    text-decoration: none;
+    font-weight: bolder;
+    margin: 0 2%;
+}
+.match-stats #delete:hover{
+    opacity: 0.75;
+}

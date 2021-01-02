@@ -39,8 +39,7 @@
         $row = pg_fetch_array( $rounds );
         $allRounds = $row['all'];
 
-        $homeTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE teams.id = matches.teams_id") or die;
-        $awayTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE teams.id = matches.teams_id1") or die;
+
 
         echo "
         <div class='rounds rounds-admin'>
@@ -48,43 +47,166 @@
 
 
         for($i=1; $i<$allRounds+1; $i++){
-                $roundResult = pg_query($conn, "SELECT * FROM matches WHERE round='$i' AND day <= CURRENT_DATE ") or die;
-                $allMatches=pg_affected_rows($roundResult);
+                $roundResult = pg_query($conn, "SELECT * FROM matches
+                                                WHERE round='$i'
+                                                AND day <= CURRENT_DATE
+                                                ORDER BY day ASC") or die;
+                                                
                 
                 echo "
                     <div class='round round-admin' id='round'>
                         <h2>".$i."ª Jornada</h2>";
-                    for ($j=0; $j<$allMatches; $j++) {
-                        $home = pg_fetch_array($homeTeam);
-                        $away = pg_fetch_array($awayTeam);
-                        $row_jornada=pg_fetch_assoc($roundResult);
-                    echo "
-                        <div class='match'>
-                            <p>".$home['name']."</p>
 
+
+                while ($rowRound = pg_fetch_assoc($roundResult)) {
+                    $homeTeam = pg_query($conn, "SELECT teams.name , teams.id AS t_id FROM teams, matches WHERE $rowRound[teams_id] = teams.id") or die;
+                    $awayTeam = pg_query($conn, "SELECT teams.name , teams.id AS t_id FROM teams, matches WHERE $rowRound[teams_id1] = teams.id") or die;
+                    $home = pg_fetch_array($homeTeam);
+                    $away = pg_fetch_array($awayTeam);
+
+
+                    echo "
+
+                        <div class='match'>
+                        <div class='match-info'> 
+                            <p>".$home['name']."</p>
                             <div class='result'>";
-                            if($row_jornada['goal_t1'] == NULL || $row_jornada['goal_t2'] == NULL){
+
+                            
+                            if($rowRound['goal_t1'] == NULL || $rowRound['goal_t2'] == NULL){
                             echo"
-                                <form method='get'>
-                                    <input type='number' name='hgoal' min='0'>
+                                <form method='POST' action='addmatch.php'>
+                                    <input type='number' name='hgoal' min='0' required>
                                     <h3>:</h3>
-                                    <input type='number' name='agoal' min='0'>
+                                    <input type='number' name='agoal' min='0' required>
+                                    <button type='submit' value='$rowRound[id]' name='sub'>></button>
                                 </form>";
                             }
                             else{
-                                echo"
-                                    <form method='get'>
-                                        <input type='number' name='hgoal' placeholder='".$row_jornada['goal_t1']."' min='0'>
-                                        <h3>:</h3>
-                                        <input type='number' name='agoal' placeholder='".$row_jornada['goal_t2']."' min='0'>
-                                    </form>";
+                            echo"
+                                <form method='POST' action='addmatch.php'>
+                                    <input type='number' name='hgoal' placeholder='".$rowRound['goal_t1']."' min='0' required>
+                                    <h3>:</h3>
+                                    <input type='number' name='agoal' placeholder='".$rowRound['goal_t2']."' min='0' required>
+                                    <button type='submit' value='$rowRound[id]' name='sub'>></button>
+                                </form>";
                             }
                             echo"
+                                </div>
+                              <p>".$away['name']."</p>
                             </div>
 
-                            <p>".$away['name']."</p>
-                        </div>
-                        ";
+                            <div class='match-stats'>";
+
+                            $goalsResult = pg_query($conn, "SELECT player.id AS pid , player.name AS pname , player.teams_id AS teamid , goals.minute AS goal
+                            FROM player, goals
+                            WHERE player.id = goals.player_id
+                            AND goals.matches_id = '$rowRound[id]'
+                            ORDER BY goal ASC") or die;
+                            
+
+                            if($rowRound['goal_t1'] != NULL || $rowRound['goal_t2'] != NULL){
+                                echo"
+                                <form method='POST' action='addmatch.php'>
+                                    <select name='pname' required>
+                                    <option disabled value='' selected>Marcador</option>";
+                                    $addPlayer = pg_query($conn, "SELECT player.name AS scorer , player.id AS scorerid
+                                    FROM player
+                                    WHERE player.teams_id = $rowRound[teams_id]
+                                    OR player.teams_id = $rowRound[teams_id1]
+                                    ORDER BY scorer ASC");
+                                    while ($rowPlayer = pg_fetch_assoc($addPlayer) ) {
+                                        echo "<option value='".$rowPlayer['scorerid']."'>".$rowPlayer['scorer']."</option>";
+                                    }
+                                echo"
+                                    </select>
+                                    <input type='number' name='minute' placeholder='Minuto' min='0' required>
+                                    <button type='submit' value='$rowRound[id]' name='add'>Adicionar</button>
+                                </form>
+                                ";
+                            }
+
+
+                            while ($goal = pg_fetch_assoc($goalsResult) ){
+
+                                if($goal['teamid'] == $home['t_id']){
+                                echo"
+                                    <div class='goal g-home'>
+                                        <p>".$goal['pname']."</p>
+                                        <h4>min ".$goal['goal']."'</h4>
+                                        <a id='delete' href='addmatch.php?rp=$goal[pid]'>x</a>
+                                    </div>
+                                    ";
+                                }
+                                else if($goal['teamid'] == $away['t_id']){
+                                    echo"
+                                    <div class='goal g-away'>
+                                        <h4>min ".$goal['goal']."'</h4>
+                                        <p>".$goal['pname']."</p>
+                                        <a id='delete' href='addmatch.php?rp=$goal[pid]'>x</a>
+                                    </div>
+                                    ";
+                                }
+                                   
+                            }
+
+
+
+/*
+                            echo"
+                            <form method='POST'>";
+
+                            while ($goal = pg_fetch_assoc($goalsResult) ){
+                                $addPlayerT1 = pg_query($conn, "SELECT player.name AS scorer , player.id AS scorerid
+                                                                FROM player
+                                                                WHERE $rowRound[teams_id] = player.teams_id ");
+
+                                $addPlayerT2 = pg_query($conn, "SELECT player.name AS scorer , player.id AS scorerid
+                                                                FROM player
+                                                                WHERE $rowRound[teams_id1] = player.teams_id ");
+
+                                    if($goal['teamid'] == $home['t_id']){
+                                    echo"
+                                        <div class='goal g-home'>
+                                            <select>
+                                                <option name='pname' value='".$goal['pid']."'>".$goal['pname']."</option>";
+                                                while ($rowPlayer = pg_fetch_assoc($addPlayerT1) ) {
+                                                    echo "<option value='".$rowPlayer['scorerid']."'>".$rowPlayer['scorer']."</option>";
+                                                }
+                                    echo"            
+                                            </select>
+                                            <input name='minute' placeholder='min ".$goal['goal']." ''>
+                                        </div>
+                                        ";
+                                    }
+
+                                    else if($goal['teamid'] == $away['t_id']){
+                                    echo"
+                                        <div class='goal g-away'>
+                                            <input name='minute' placeholder='min ".$goal['goal']." ''>
+                                            <select>
+                                            <option name='pname' value='".$goal['pid']."'>".$goal['pname']."</option>";
+                                            while ($rowPlayer = pg_fetch_assoc($addPlayerT2) ) {
+                                                echo "<option value='".$rowPlayer['scorerid']."'>".$rowPlayer['scorer']."</option>";
+                                            }
+                                    echo"            
+                                        </select>
+                                        </div>
+                                        ";
+                                    }
+
+                                }
+            
+                            echo"
+                            
+                            <button type='submit' value='$rowRound[id]' name='sub'>Registar</button>
+                            </form>
+
+                            */
+                            echo"
+                            </div>
+                            </div>
+                            ";
             }
             echo "</div>";
             
@@ -92,6 +214,8 @@
         echo "
         </div>
         ";
+        
+
         pg_close($conn);
 ?>
     </div>

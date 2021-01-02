@@ -12,7 +12,7 @@ session_start();
     <link rel="stylesheet" href="css/login.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/myscript.js"></script>
-    <title>11 Eleven</title>
+    <title>11Champions</title>
 </head>
 <body>
     <?php

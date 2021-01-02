@@ -37,41 +37,72 @@
             $rounds = pg_query($conn, "SELECT MAX(round) AS all FROM matches") or die;
             $row = pg_fetch_array( $rounds );
             $allRounds = $row['all'];
-
-            $homeTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE teams.id = matches.teams_id") or die;
-            $awayTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE teams.id = matches.teams_id1") or die;
             
             echo "
             <div class='rounds'>
             ";
 
-
             for($i=1; $i<$allRounds+1; $i++){
-                    $roundResult = pg_query($conn, "SELECT * FROM matches WHERE round='$i' AND goal_t1 IS NOT NULL AND goal_t2 IS NOT NULL") or die;
-                    $allMatches=pg_affected_rows($roundResult);
+                    $roundResult = pg_query($conn, "SELECT * FROM matches
+                                                    WHERE round='$i'
+                                                    AND goal_t1 IS NOT NULL
+                                                    AND goal_t2 IS NOT NULL
+                                                    ORDER BY day ASC") or die;
                     
                     echo "
                         <div class='round' id='round'>
                             <h2>".$i."ª Jornada</h2>";
-                        for ($j=0; $j<$allMatches; $j++) {
+
+                        while ($rowRound = pg_fetch_assoc($roundResult)) {
+                            $homeTeam = pg_query($conn, "SELECT teams.name , teams.id AS t_id FROM teams, matches WHERE $rowRound[teams_id] = teams.id") or die;
+                            $awayTeam = pg_query($conn, "SELECT teams.name , teams.id AS t_id FROM teams, matches WHERE $rowRound[teams_id1] = teams.id") or die;
                             $home = pg_fetch_array($homeTeam);
                             $away = pg_fetch_array($awayTeam);
-                            $row_jornada=pg_fetch_assoc($roundResult);
+                            $home = pg_fetch_array($homeTeam);
+                            $away = pg_fetch_array($awayTeam);
+
                         echo "
                             <div class='match'>
                                 <div class='match-info'>
                                     <h4>".$home['name']."</h4>
                                     <div class='result'>
-                                        <h3>".$row_jornada['goal_t1']."</h3>
+                                        <h3>".$rowRound['goal_t1']."</h3>
                                         <h3>:</h3>
-                                        <h3>".$row_jornada['goal_t2']."</h3>
+                                        <h3>".$rowRound['goal_t2']."</h3>
                                     </div>
                                     <h4>".$away['name']."</h4>
                                 </div>
 
-                                <div class='match-stats'>
-                                    <h4>min</h4>
-                                    <p>Nome Jogador</p>
+                                <div class='match-stats'>";
+
+                                $goalsResult = pg_query($conn, "SELECT player.name AS pname , player.teams_id AS teamid , goals.minute AS goal
+                                FROM player, goals
+                                WHERE player.id = goals.player_id
+                                AND goals.matches_id= '$rowRound[id]'
+                                ORDER BY goal ASC") or die;
+
+
+                                while ($goal = pg_fetch_assoc($goalsResult) ){
+
+                                    if($goal['teamid'] == $home['t_id']){
+                                    echo"
+                                        <div class='goal g-home'>
+                                            <p>".$goal['pname']."</p>
+                                            <h4>min ".$goal['goal']."'</h4>
+                                        </div>
+                                        ";
+                                    }
+                                    else if($goal['teamid'] == $away['t_id']){
+                                    echo"
+                                        <div class='goal g-away'>
+                                            <h4>min ".$goal['goal']."'</h4>
+                                            <p>".$goal['pname']."</p>
+                                        </div>
+                                        ";
+                                    }
+                                       
+                                }
+                                echo"
                                 </div>
                             </div>
                             ";

@@ -34,7 +34,7 @@
     /*---------------------------------ADD PLAYER FORM-----------------------------*/
 
     /*----------get table teams info-----------*/
-    $teamsResult = pg_query($conn, "SELECT teams.name as team_name , teams.id as team_id from teams");
+    $teamsResult = pg_query($conn, "SELECT teams.name AS team_name , teams.id AS team_id FROM teams ORDER BY team_name ASC");
 
     echo "
             <div class='add-player' id='addPlayer'>
@@ -105,7 +105,7 @@
 
 
         /*----------get table teams info-----------*/
-        $teamsName = pg_query($conn, "SELECT teams.name as team_name , teams.id as team_id, matches_played from teams");
+        $teamsName = pg_query($conn, "SELECT teams.name AS team_name , teams.id AS team_id, matches_played FROM teams ORDER BY team_name ASC");
 
         while ($row = pg_fetch_assoc($teamsName) ){
             $logo_src = 0;

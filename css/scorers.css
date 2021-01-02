@@ -1,14 +1,43 @@
 /*--------------------SCORERS--------------------*/
+.scorers-container{
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0.5% auto;
+    position: relative;
+}
 .player-stats{
     background: #242E35;
-    width: 80%;
-    margin: 0 auto 2% auto;
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
-    padding: 2% 4%;
     color: #ebebeb;
+    margin: 2%;
+    padding: 4%;
+    border-radius: 15px;
+    position: relative;
+}
+.player-stats h2{
+    border-bottom: 2px solid #FBE204;
+}
+.player-stats h3{
+    margin: 4% 0;
+    color: #FBE204;
+}
+
+.player-goals{
+    position: relative;
 }
 .player-goals h1{
     font-size: 4em;
+}
+.player-goals p{
+    font-size: 12px;
+    position: absolute;
+    bottom: 7px;
+    right: 3px;
+    color: #FBE204;
+}
+@media (max-width: 1000px) {
+    .scorers-container  { grid-template-columns: repeat(1, 1fr); }
 }
