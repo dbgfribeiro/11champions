@@ -12,26 +12,54 @@
     display: flex;
     justify-content: space-between;
     color: #ebebeb;
-    margin: 2%;
-    padding: 4%;
+    margin: 1%;
+    padding: 1% 2%;
     border-radius: 15px;
+    grid-column: span 1;
     position: relative;
+    transform: scale(0.95 , 0.95);
 }
 .player-stats h2{
-    border-bottom: 2px solid #FBE204;
+    font-size: 16px;
 }
 .player-stats h3{
-    margin: 4% 0;
+    margin: 0;
     color: #FBE204;
-}
-
-.player-goals{
-    position: relative;
+    font-size: 16px;
+    font-weight: lighter;
 }
 .player-goals h1{
-    font-size: 4em;
+    font-size: 2em;
 }
 .player-goals p{
+    font-size: 12px;
+    color: #FBE204;
+    margin: 0;
+    padding: 0;
+    font-weight: lighter;
+}
+
+.player-stats:nth-child(-n+4) {
+    background: #333A3D;
+    transform: none;
+    grid-column: span 1;
+    margin: 1%;
+    padding: 4%;
+}
+.player-stats:nth-child(-n+4) h2{
+    font-size: 24px;
+}
+.player-stats:nth-child(-n+4) h3{
+    font-size: 18px;
+    margin: 4% 0;
+}
+.player-stats:nth-child(-n+4) .player-goals{
+    position: relative;
+}
+.player-stats:nth-child(-n+4) .player-goals h1{
+    font-size: 4em;
+}
+.player-stats:nth-child(-n+4) .player-goals p{
     font-size: 12px;
     position: absolute;
     bottom: 7px;
@@ -40,4 +68,9 @@
 }
 @media (max-width: 1000px) {
     .scorers-container  { grid-template-columns: repeat(1, 1fr); }
+}
+@media only screen and (max-width: 800px) {
+    .scorers-container {
+        width: 90%;
+    }
 }

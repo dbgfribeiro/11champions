@@ -39,11 +39,11 @@
                                         GROUP BY player.teams_id, player.position, player.name
                                         ORDER BY ngoals DESC");
 
-
-
+ 
         echo "
         <div class='scorers-container'>";
         while ($row = pg_fetch_assoc($goalResult) ){
+
 
             $teamResult = pg_query($conn, "SELECT teams.name AS tname FROM teams, player WHERE $row[tid] = teams.id") or die;
             $team = pg_fetch_array($teamResult);

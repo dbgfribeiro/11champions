@@ -20,7 +20,7 @@ result.forEach(function(r){
 
 var now = new Date();
 var nowMonth = now.getMonth()+1;
-
+console.log(nowMonth);
 
 var matchMonth = document.getElementsByClassName("round-container");
 var matchNov = document.getElementById("nov");
@@ -120,7 +120,7 @@ if (nowMonth == 12){
 if (nowMonth == 1){
     for(var i = 0; i < matchMonth.length; i++){
         matchMonth[i].style.display = "none";
-        matchDec.style.display = "block";
+        matchJan.style.display = "block";
     }
 }
 if (nowMonth == 2){

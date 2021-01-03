@@ -44,8 +44,10 @@ table a{
   transition: 0.2s;
 }
 table a:hover{
-  opacity: 0.5;
+  opacity: 0.75;
+  text-decoration: underline;
 }
+
   /*---------------ADMIN---------------*/
 
   .leaderboard-edit {

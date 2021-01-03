@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/results.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/myscript.js"></script>
     <title>Últimos Resultados</title>
 </head>
 <body>
@@ -48,7 +47,7 @@
                                                     AND goal_t1 IS NOT NULL
                                                     AND goal_t2 IS NOT NULL
                                                     ORDER BY day ASC") or die;
-                    
+                    //displays all rounds
                     echo "
                         <div class='round' id='round'>
                             <h2>".$i."ª Jornada</h2>";
@@ -61,9 +60,11 @@
                             $home = pg_fetch_array($homeTeam);
                             $away = pg_fetch_array($awayTeam);
 
+                        //displays all matches per round   
                         echo "
                             <div class='match'>
                                 <div class='match-info'>
+                                    <p>".date("d/m", strtotime($rowRound['day']))."</p>
                                     <h4>".$home['name']."</h4>
                                     <div class='result'>
                                         <h3>".$rowRound['goal_t1']."</h3>
@@ -81,7 +82,7 @@
                                 AND goals.matches_id= '$rowRound[id]'
                                 ORDER BY goal ASC") or die;
 
-
+                                //displays all goals per match  
                                 while ($goal = pg_fetch_assoc($goalsResult) ){
 
                                     if($goal['teamid'] == $home['t_id']){
@@ -117,6 +118,7 @@
         ?>
     </div>
 </main>
+<script src="js/myscript.js"></script>
 <script src="js/calendar.js"></script>
 </body>
 </html>

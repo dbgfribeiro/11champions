@@ -12,11 +12,11 @@
 
         <div class="search">
             <button id="searchOpen"><img src="img/search.png" alt="search"></button>
-            <form id="searchBar" method="get" action="leaderboards.php">
-                    <span>
-                        <input name="search" type="text" placeholder="Search..">
-                        <input name="submit" type="submit" value=">" />
-                    </span>
+            <form id="searchBar" action="teams.php" method="POST">
+                <span>
+                    <input name="search" type="text" placeholder="Search..">
+                    <input name="submit" type="submit" value=">" />
+                </span>
             </form>
         </div>
 

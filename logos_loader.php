@@ -1,28 +1,28 @@
 <?php
     /*this file loads all teams logos so they can be included in teams page*/
 
-    if ($row['team_name'] == 'Académica') {
+    if ($row['name'] == 'Académica') {
         $logo_src = 'img/logos/academica.png';
     }
-    if ($row['team_name'] == 'Benfica') {
+    if ($row['name'] == 'Benfica') {
         $logo_src = 'img/logos/benfica.png';
     }
-    if ($row['team_name'] == 'Boavista') {
+    if ($row['name'] == 'Boavista') {
         $logo_src = 'img/logos/boavista.png';
     }
-    if ($row['team_name'] == 'FC Porto') {
+    if ($row['name'] == 'FC Porto') {
         $logo_src = 'img/logos/porto.png';
     }
-    if ($row['team_name'] == 'Rio Ave') {
+    if ($row['name'] == 'Rio Ave') {
         $logo_src = 'img/logos/rioave.png';
     }
-    if ($row['team_name'] == 'SC Braga') {
+    if ($row['name'] == 'SC Braga') {
         $logo_src = 'img/logos/braga.png';
     }
-    if ($row['team_name'] == 'Sporting') {
+    if ($row['name'] == 'Sporting') {
         $logo_src = 'img/logos/sporting.png';
     }
-    if ($row['team_name'] == 'Vitória SC') {
+    if ($row['name'] == 'Vitória SC') {
         $logo_src = 'img/logos/vitoria.png';
     }
 ?>

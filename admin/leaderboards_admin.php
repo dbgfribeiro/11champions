@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/leaderboards.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/myscript.js"></script>
-    <title>Classificações</title>
+    <title>admin_Classificações</title>
 </head>
 <body>
 <header>
@@ -28,45 +28,50 @@
         <h1>CLASSIFICAÇÕES</h1>
 
         <?php
-
         $str = "dbname=11champions user=postgres password=postgres host=localhost port=5432";
         $conn = pg_connect($str);
 
+        //order by chosen category
+        if(isset($_GET['category'])){
+                $category = $_GET['category'];
+        }
+        //default order is by points
+        else{
+                $category = 'points';
+        }
+
+        //changes order between DESC and ASC on click
         if(isset($_GET['order'])){
                 $order = $_GET['order'];
         }
         else{
-                $order = 'points';
-        }
-
-        if(isset($_GET['sort'])){
-                $sort = $_GET['sort'];
-        }
-        else{
-                $sort = 'DESC';
+                $order = 'DESC';
         }
         $rowCount = 1;
         $leaderboards = pg_query($conn, " SELECT  *  FROM leaderboards, teams
                                         WHERE leaderboards.teams_id = teams.id
-                                        ORDER BY $order $sort");
+                                        ORDER BY $category $order");
 
         if(pg_num_rows($leaderboards) > 0){
 
-                $sort == 'DESC' ? $sort = 'ASC' : $sort = 'DESC';
+                //reads clicks to toggle between order ASC and DESC
+                $order == 'DESC' ? $order = 'ASC' : $order = 'DESC';
 
                 echo "
                 <table>
                     <tr>
                         <th>#</th>
-                        <th><a href='?order=name&&sort=$sort'>Equipa</a></th>
-                        <th><a href='?order=points&&sort=$sort'>P</a></th>
-                        <th><a href='?order=matches_played&&sort=$sort'>NºJ</a></th>
-                        <th><a href='?order=wins&&sort=$sort'>V</a></th>
-                        <th><a href='?order=draws&&sort=$sort'>E</a></th>
-                        <th><a href='?order=loses&&sort=$sort'>D</a></th>
-                        <th><a href='?order=g_scored&&sort=$sort'>GM</a></th>
-                        <th><a href='?order=g_conceed&&sort=$sort'>GS</a></th>
+                        <th><a href='?category=name&&order=$order'>Equipa</a></th>
+                        <th><a href='?category=points&&order=$order'>P</a></th>
+                        <th><a href='?category=matches_played&&order=$order'>NºJ</a></th>
+                        <th><a href='?category=wins&&order=$order'>V</a></th>
+                        <th><a href='?category=draws&&order=$order'>E</a></th>
+                        <th><a href='?category=loses&&order=$order'>D</a></th>
+                        <th><a href='?category=g_scored&&order=$order'>GM</a></th>
+                        <th><a href='?category=g_conceed&&order=$order'>GS</a></th>
                     </tr>";
+
+
         while ($row = pg_fetch_assoc($leaderboards) ){
 
                 echo   "
@@ -98,22 +103,8 @@
 
         <?php
 
-
-        function checkResults($goal1 , $goal2){
-            if($goal1 > $goal2){
-                return 1;
-            }
-            else if($goal1 == $goal2){
-                return 0;
-            }
-            else if($goal1 < $goal2){
-                return -1;
-            }
-        }
-
         $str = "dbname=11champions user=postgres password=postgres host=localhost port=5432";
         $conn = pg_connect($str);
-        error_reporting(0);
 
 
         $rounds = pg_query($conn, "SELECT MAX(round) AS all FROM matches") or die;
@@ -125,99 +116,81 @@
 
         for($i=1; $i<$allRounds+1; $i++){
             
-                $roundResult = pg_query($conn, "SELECT * FROM matches WHERE round='$i' AND goal_t1 IS NOT NULL AND goal_t2 IS NOT NULL") or die;
-                $allMatches=pg_affected_rows($roundResult);
-                        
+                $roundResult = pg_query($conn, "SELECT * FROM matches WHERE round='$i' AND goal_t1 IS NOT NULL AND goal_t2 IS NOT NULL") or die;                        
 
-                    for ($j=0; $j<$allMatches; $j++) {
-                        $home = pg_fetch_array($homeTeam);
-                        $away = pg_fetch_array($awayTeam);
-                        $row_round=pg_fetch_assoc($roundResult);
+                    while ($row_round = pg_fetch_assoc($roundResult)) {
 
-
-
-                        $finalScore = checkResults($row_round['goal_t1'], $row_round['goal_t2']);
-                        if($finalScore == 1){
-                            $resultT1 = "won";
-                            $resultT2 = "lost";
-                        }
-                        else if($finalScore == -1){
-                            $resultT1 = "lost";
-                            $resultT2 = "won";
-                        }
-                        else if($finalScore == 0){
-                            $resultT1 = "draw";
-                            $resultT2 = "draw";
-                        }
-
-
-                        $team1 = pg_query($conn, "SELECT * from leaderboards, matches where matches.teams_id = leaderboards.teams_id");
+                        $team1 = pg_query($conn, "SELECT * FROM leaderboards, matches WHERE leaderboards.teams_id = $row_round[teams_id]");
                         $team1result = pg_fetch_array($team1);
-                        $team2 = pg_query($conn, "SELECT * from leaderboards, matches where matches.teams_id1 = leaderboards.teams_id");
-                        $team2result = pg_fetch_array($team2);
 
-                        $team1ID = $row_round['teams_id'];
-                        $team2ID = $row_round['teams_id1'];
+                        $team2 = pg_query($conn, "SELECT * FROM leaderboards, matches WHERE leaderboards.teams_id = $row_round[teams_id1] ");
+                        $team2result = pg_fetch_array($team2);
+                    
+ 
                         $team1Goal = $team1result['g_scored']+$row_round['goal_t1'];
+                        $team1GoalC = $team1result['g_conceed']+$row_round['goal_t2'];
+
                         $team2Goal = $team2result['g_scored']+$row_round['goal_t2'];
-                        
+                        $team2GoalC = $team2result['g_conceed']+$row_round['goal_t1'];
+
 
 
                         if(isset($_GET['update'])){
                             
-                            if($resultT1 == "won" && $resultT2 == "lost"){
-
+                            if($row_round['goal_t1'] > $row_round['goal_t2']){
 
                                 $team1wins = $team1result['wins']+1;
                                 $leaderboardT1Update = pg_query($conn, "UPDATE leaderboards
-                                                                        SET wins = '$team1wins',
-                                                                        g_scored = '$team1Goal',
-                                                                        g_conceed = '$team2Goal'
-                                                                        WHERE teams_id = '$team1ID'");                                   
+                                                                        SET wins = $team1wins,
+                                                                        g_scored = $team1Goal,
+                                                                        g_conceed = $team1GoalC
+                                                                        WHERE teams_id = $row_round[teams_id]");                                   
                             
                                 $team2loses = $team2result['loses']+1;
                                 $leaderboardT2Update = pg_query($conn, "UPDATE leaderboards
-                                                                        SET loses = '$team2loses',
-                                                                        g_scored = '$team2Goal',
-                                                                        g_conceed = '$team1Goal'
-                                                                        WHERE teams_id = '$team2ID'");  
+                                                                        SET loses = $team2loses,
+                                                                        g_scored = $team2Goal,
+                                                                        g_conceed = $team2GoalC
+                                                                        WHERE teams_id = $row_round[teams_id1]");  
                             }
 
 
-                            else if($resultT1 == "lost" && $resultT2 == "won"){
-
-                                $team1loses = $team1result['loses']+1;
-                                $leaderboardT1Update = pg_query($conn, "UPDATE leaderboards
-                                                                        SET loses = '$team1loses',
-                                                                        g_scored = '$team1Goal',
-                                                                        g_conceed = '$team2Goal'
-                                                                        WHERE teams_id = '$team1ID'");     
-
-                                $team2wins = $team2result['wins']+1;
-                                $leaderboardT2Update = pg_query($conn, "UPDATE leaderboards
-                                                                        SET wins = '$team2wins',
-                                                                        g_scored = '$team2Goal',
-                                                                        g_conceed = '$team1Goal'
-                                                                        WHERE teams_id = '$team2ID'");
-
-                            }
-
-                            else if($resultT1 == "draw" && $resultT2 == "draw"){
+                            if($row_round['goal_t1'] == $row_round['goal_t2']){
 
                                 $team1draws = $team1result['draws']+1;
                                 $leaderboardT1Update = pg_query($conn, "UPDATE leaderboards
-                                                                        SET draws = '$team1draws',
-                                                                        g_scored = '$team1Goal',
-                                                                        g_conceed = '$team2Goal'
-                                                                        WHERE teams_id = '$team1ID'");         
+                                                                        SET draws = $team1draws,
+                                                                        g_scored = $team1Goal,
+                                                                        g_conceed = $team1GoalC
+                                                                        WHERE teams_id = $row_round[teams_id]");         
 
                                 $team2draws = $team2result['draws']+1;
                                 $leaderboardT2Update = pg_query($conn, "UPDATE leaderboards
                                                                         SET draws = $team2draws,
-                                                                        g_scored = '$team2Goal',
-                                                                        g_conceed = '$team1Goal'
-                                                                        WHERE teams_id = '$team2ID'");
+                                                                        g_scored = $team2Goal,
+                                                                        g_conceed = $team2GoalC
+                                                                        WHERE teams_id = $row_round[teams_id1]");
                             }
+
+
+                            if($row_round['goal_t1'] < $row_round['goal_t2']){
+                            
+                                $team2wins = $team2result['wins']+1;
+                                $leaderboardT2Update = pg_query($conn, "UPDATE leaderboards
+                                                                        SET wins = $team2wins,
+                                                                        g_scored = $team2Goal,
+                                                                        g_conceed = $team2GoalC
+                                                                        WHERE teams_id = $row_round[teams_id1]");                                   
+                            
+                                $team1loses = $team1result['loses']+1;
+                                $leaderboardT1Update = pg_query($conn, "UPDATE leaderboards
+                                                                        SET loses = $team1loses,
+                                                                        g_scored = $team1Goal,
+                                                                        g_conceed = $team1GoalC
+                                                                        WHERE teams_id = $row_round[teams_id]");  
+                            }
+
+                            
                             $pointsUpdate = pg_query($conn, "UPDATE leaderboards
                                                             SET points = (wins*3 + draws)
                                                             WHERE teams_id IN (1,2,3,4,5,6,7,8)");

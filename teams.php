@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/teams.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/myscript.js"></script>
     <title>Equipas</title>
 </head>
 <body>
@@ -34,8 +33,16 @@
 
 
         /*----------get table teams info-----------*/
-        $teamsResult = pg_query($conn, "SELECT teams.name AS team_name , teams.id AS team_id, matches_played FROM teams ORDER BY team_name ASC");
-
+        if (isset($_POST['search'])){
+            $search = $_POST['search'];
+            $teamsResult = pg_query($conn, "SELECT * FROM teams WHERE name = '$search'");
+        }
+        
+        else{
+            $teamsResult = pg_query($conn, "SELECT * FROM teams ORDER BY name ASC");
+        }
+        
+        
         while ($row = pg_fetch_assoc($teamsResult) ){
             
             $logo_src = 0;
@@ -44,11 +51,9 @@
 
             <div class='team-container'>
 
-
-
                 <div class='team-info'>
                     <div class='team-desc'>
-                    <h2>".$row['team_name']."</h2>
+                    <h2>".$row['name']."</h2>
                     <p>Nº de jogos: ".$row['matches_played']." </p>
                     </div>
                     <a id='open' href='#'>+</a>
@@ -63,7 +68,7 @@
             /*----------get position 'Avançado' from player-----------*/
             $avancadoResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
-                                                    where teams_id='$row[team_id]' and position='Avançado'
+                                                    where teams_id='$row[id]' and position='Avançado'
                                                     order by player_name asc ");
             echo "<ul>";
             echo "<h3>Avançados</h3>";
@@ -77,7 +82,7 @@
             /*----------get position 'Médio' from player-----------*/
             $medioResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
-                                                    where teams_id='$row[team_id]' and position='Médio'
+                                                    where teams_id='$row[id]' and position='Médio'
                                                     order by player_name asc ");
             echo "<ul>";
             echo "<h3>Médios</h3>";
@@ -91,7 +96,7 @@
             /*----------get position 'Defesa' from player-----------*/
             $defesaResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
-                                                    where teams_id='$row[team_id]' and position='Defesa'
+                                                    where teams_id='$row[id]' and position='Defesa'
                                                     order by player_name asc ");
             echo "<ul>";
             echo "<h3>Defesas</h3>";
@@ -105,7 +110,7 @@
             /*----------get position 'Guarda Redes' from player-----------*/
             $grResult = pg_query($conn, "SELECT player.name as player_name , position, age 
                                                     from player
-                                                    where teams_id='$row[team_id]' and position='Guarda Redes'
+                                                    where teams_id='$row[id]' and position='Guarda Redes'
                                                     order by player_name asc ");
             echo "<ul>";
             echo "<h3>Guarda Redes</h3>";

@@ -75,6 +75,7 @@
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
+                            <a id='delete' href='admin_addmatch.php?rm=$match[id]'>x</a>
                         </div>
                     ";
             }
@@ -114,6 +115,7 @@
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
+                            <a id='delete' href='admin_addmatch.php?rm=$match[id]'>x</a>
                         </div>
                     ";
         }
@@ -152,6 +154,7 @@
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
+                            <a id='delete' href='admin_addmatch.php?rm=$match[id]'>x</a>
                         </div>
                     ";
         }
@@ -192,6 +195,7 @@
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
+                            <a id='delete' href='admin_addmatch.php?rm=$match[id]'>x</a>
                         </div>
                     ";
         }
@@ -201,35 +205,29 @@
 
 
 
-        $roundsResult = pg_query($conn, "SELECT round, COUNT(*) AS nrounds FROM matches GROUP BY round ORDER BY round ASC");
+        $roundsResult = pg_query($conn, "SELECT round, MAX(round) AS maxround, COUNT(*) AS nrounds FROM matches GROUP BY round ORDER BY round ASC");
 
-        $homeTeam = pg_query($conn, "SELECT teams.name as homename , teams.id as homeid from teams") or die;
-        $awayTeam = pg_query($conn, "SELECT teams.name as awayname , teams.id as awayid from teams") or die;
-        
+        $homeTeam = pg_query($conn, "SELECT teams.name as homename , teams.id as homeid from teams ORDER BY teams.name ASC") or die;
+        $awayTeam = pg_query($conn, "SELECT teams.name as awayname , teams.id as awayid from teams ORDER BY teams.name ASC") or die;
 
 
+        //form to schedule matches
         echo "
             <div class='add-match' id='addMatch' style='display: none'>
             <div class='add-match-back' onclick='added()'></div>
             <div class='add-match-form'>
                 <p>Adicionar Jogo</p>
 
-                <form method='get'>
+                <form method='POST'>
                     <select class='ro' name='round' onChange='dateSelect(this);'>
                         <option disabled value='' selected>Nº Jornada</option>";
-                    while ($numRounds = pg_fetch_assoc($roundsResult) ) {
-                        if($numRounds['nrounds'] >= 4){
-                            echo "<option disabled value='".$numRounds['round']."'>".$numRounds['round']."</option>";
+                        for($i=1; $i<=14; $i++) {
+                            echo "<option value=".$i.">".$i."</option>";
                         }
-                        else {
-                            echo "<option value='".$numRounds['round']."'>".$numRounds['round']."</option>";
-                        }
-                    }
                     echo"
                     </select>
 
                     <input class='dt' disabled id='date' type='date' name='date'></input>
-
 
                     <div class='teams'>
                     <select class='ht' name='hometeam'>
@@ -252,40 +250,40 @@
                     </div>
 
                     <input class='submit' type='submit' name='submit' value='Submeter'>
-                    
+            
                 </form>
 
                 </div>
             </div>
         ";
 
-        $dt = $_GET['date'];
-        $ro = $_GET['round'];
-        $ht = $_GET['hometeam'];
-        $at = $_GET['awayteam'];
+        $dt = $_POST['date'];
+        $ro = $_POST['round'];
+        $ht = $_POST['hometeam'];
+        $at = $_POST['awayteam'];
 
-        if ($ht != $at){
-            $query="INSERT INTO matches (day, goal_t1, goal_t2, round, teams_id, teams_id1)
-                    VALUES ('$dt', NULL , NULL , '$ro', '$ht', '$at' );";
-
-            $data=pg_query($conn,$query);
-            $count = pg_num_rows($data);
-            
-            if ($data){
-                echo"
-                <div class='add-match' style='display: block'>
-                    <div class='add-match-back'></div>
-                    <div class='new-match'>
-                        <p>O Jogo:</p>
-                        <div class='new-info'>
-                            <p>No dia <span style='color:#FBE204'>".$dt."</span> a contar para a <span style='color:#FBE204'>".$ro."ª Jornada</span></p>
+            if ($ht != $at){
+                    $query="INSERT INTO matches (day, goal_t1, goal_t2, round, teams_id, teams_id1)
+                            VALUES ('$dt', NULL , NULL , '$ro', '$ht', '$at' );";
+        
+                    $data=pg_query($conn,$query);
+                    $count = pg_num_rows($data);
+                    
+                    if ($data){
+                        echo"
+                        <div class='add-match' style='display: block'>
+                            <div class='add-match-back'></div>
+                            <div class='new-match'>
+                                <p>O Jogo:</p>
+                                <div class='new-info'>
+                                    <p>No dia <span style='color:#FBE204'>".$dt."</span> a contar para a <span style='color:#FBE204'>".$ro."ª Jornada</span></p>
+                                </div>
+                                <p>Foi adicionado!</p>
+                                <a href='calendar_admin.php'>Voltar</a>
                         </div>
-                        <p>Foi adicionado!</p>
-                        <a href='calendar_admin.php'>Voltar</a>
-                </div>
-             ";
-            }
-        }
+                     ";
+                    }
+                }
 
         ?>
 

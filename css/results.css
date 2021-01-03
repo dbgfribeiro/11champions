@@ -6,9 +6,9 @@
     width: 80%;
     margin: 2% auto;
     position: relative;
-    background: #242E35;
+    background: #333a3d;
     color: #ebebeb;
-    border-radius: 15px;
+    border-radius: 20px;
     text-align: center;
     padding: 1%;
     display: flex;
@@ -22,19 +22,31 @@
 }
 
 .match{
-    margin: 1% 0;
+    margin-top: 1%;
     border-radius: 18px;
-    border: 6px solid #1f252b;
     background: #1f252b;
 }
 .match-info{
     display: flex;
     justify-content: space-around;
     padding: 2% 0;
-    border-radius: 10px;
+    border-radius: 18px;
     background: #242E35;
     transition: 0.3s;
     position: relative;
+}
+.match-info p{
+    position: absolute;
+    background-color: #1f252b;
+    padding: 1%;
+    margin: 0;
+    position: absolute;
+    left: 1%;
+    top: 50%;
+    border-radius: 5px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
 }
 .result{
     color: #FBE204;
@@ -66,6 +78,14 @@
 .g-away {
     flex-direction: row-reverse;
 }
+@media only screen and (max-width: 800px) {
+    .round {
+        width: 90%;
+    }
+}
+
+
+
 /*---------------ADMIN--------------*/
 .result form{
     color: #FBE204;
@@ -136,6 +156,6 @@
     font-weight: bolder;
     margin: 0 2%;
 }
-.match-stats #delete:hover{
+.goal #delete:hover{ 
     opacity: 0.75;
 }

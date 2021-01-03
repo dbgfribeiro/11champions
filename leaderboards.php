@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/leaderboards.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/myscript.js"></script>
     <title>Classificações</title>
 </head>
 <body>
@@ -31,43 +30,46 @@
         $str = "dbname=11champions user=postgres password=postgres host=localhost port=5432";
         $conn = pg_connect($str);
 
+        //order by chosen category
+        if(isset($_GET['category'])){
+                $category = $_GET['category'];
+        }
+        //default order is by points
+        else{
+                $category = 'points';
+        }
+        //changes order between DESC and ASC on click
         if(isset($_GET['order'])){
                 $order = $_GET['order'];
         }
         else{
-                $order = 'points';
-        }
-
-        if(isset($_GET['sort'])){
-                $sort = $_GET['sort'];
-        }
-        else{
-                $sort = 'DESC';
+                $order = 'DESC';
         }
         $rowCount = 1;
         $leaderboards = pg_query($conn, " SELECT  *  FROM leaderboards, teams
                                         WHERE leaderboards.teams_id = teams.id
-                                        ORDER BY $order $sort");
+                                        ORDER BY $category $order");
 
         if(pg_num_rows($leaderboards) > 0){
-
-                $sort == 'DESC' ? $sort = 'ASC' : $sort = 'DESC';
+                //reads clicks to toggle between order ASC and DESC
+                $order == 'DESC' ? $order = 'ASC' : $order = 'DESC';
 
                 echo "
                 <table>
                     <tr>
                         <th>#</th>
-                        <th><a href='?order=name&&sort=$sort'>Equipa</a></th>
-                        <th><a href='?order=points&&sort=$sort'>P</a></th>
-                        <th><a href='?order=matches_played&&sort=$sort'>NºJ</a></th>
-                        <th><a href='?order=wins&&sort=$sort'>V</a></th>
-                        <th><a href='?order=draws&&sort=$sort'>E</a></th>
-                        <th><a href='?order=loses&&sort=$sort'>D</a></th>
-                        <th><a href='?order=g_scored&&sort=$sort'>GM</a></th>
-                        <th><a href='?order=g_conceed&&sort=$sort'>GS</a></th>
+                        <th><a href='?category=name&&order=$order' target='_top'>Equipa</a></th>
+                        <th><a href='?category=points&&order=$order'>P</a></th>
+                        <th><a href='?category=matches_played&&order=$order'>NºJ</a></th>
+                        <th><a href='?category=wins&&order=$order'>V</a></th>
+                        <th><a href='?category=draws&&order=$order'>E</a></th>
+                        <th><a href='?category=loses&&order=$order'>D</a></th>
+                        <th><a href='?category=g_scored&&order=$order'>GM</a></th>
+                        <th><a href='?category=g_conceed&&order=$order'>GS</a></th>
                     </tr>";
-        while ($row = pg_fetch_assoc($leaderboards) ){
 
+
+        while ($row = pg_fetch_assoc($leaderboards) ){
                 echo   "
                     <tr>
                         <td>".$rowCount++."</td>
@@ -88,10 +90,6 @@
         ?>
     </div>
 </main>
-<script>    
-    if(typeof window.history.pushState == 'function') {
-        window.history.pushState({}, "Hide", "teste.php");
-    }
-</script>
+<script src="js/myscript.js"></script>
 </body>
 </html>

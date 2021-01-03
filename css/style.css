@@ -282,7 +282,8 @@ button:focus {outline:0;}
         font-size: 1.5em;
     }
     .container {
-        margin: 10% auto;
+        width: 100%;
+        margin: 6% auto;
         padding: 10% 0;
     }
     .container h1{

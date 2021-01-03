@@ -38,7 +38,7 @@
         $matchJan = pg_query($conn, "SELECT * FROM matches where '2021-01-01' <= day AND day < '2021-02-01' ORDER BY day ASC") or die;
         $matchFeb = pg_query($conn, "SELECT * FROM matches where '2021-02-01' <= day AND day < '2021-03-01' ORDER BY day ASC") or die;
 
-
+        //create one container for each month
 
         echo "<div class='round-container' id='nov'>
                 <div class='month'>
@@ -77,6 +77,7 @@
             }
             echo "</div>
                  </div>";
+                 
 
 
         echo "<div class='round-container' id='dec'>
@@ -116,6 +117,8 @@
         echo "</div>
              </div>";
 
+
+            
         echo "<div class='round-container' id='jan'>
                 <div class='month'>
                     <h2>JANEIRO<span>3/4</span></h2>

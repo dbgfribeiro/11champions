@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/scorers.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/myscript.js"></script>
     <title>admin_Marcadores</title>
 </head>
 <body>
@@ -70,6 +69,8 @@
         ?>
     </div>
 </main>
+
+<script src="../js/myscript.js"></script>
 
 </body>
 </html>

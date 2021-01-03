@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/results.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/myscript.js"></script>
     <title>admin_Últimos Resultados</title>
 </head>
 <body>
@@ -52,7 +51,7 @@
                                                 AND day <= CURRENT_DATE
                                                 ORDER BY day ASC") or die;
                                                 
-                
+                //displays all rounds
                 echo "
                     <div class='round round-admin' id='round'>
                         <h2>".$i."ª Jornada</h2>";
@@ -65,17 +64,18 @@
                     $away = pg_fetch_array($awayTeam);
 
 
+                    //displays all matches per round 
                     echo "
-
                         <div class='match'>
                         <div class='match-info'> 
-                            <p>".$home['name']."</p>
+                            <p>".date("d/m", strtotime($rowRound['day']))."</p>
+                            <h4>".$home['name']."</h4>
                             <div class='result'>";
-
                             
                             if($rowRound['goal_t1'] == NULL || $rowRound['goal_t2'] == NULL){
                             echo"
-                                <form method='POST' action='addmatch.php'>
+                            
+                                <form method='POST' action='admin_addmatch.php'>
                                     <input type='number' name='hgoal' min='0' required>
                                     <h3>:</h3>
                                     <input type='number' name='agoal' min='0' required>
@@ -84,7 +84,7 @@
                             }
                             else{
                             echo"
-                                <form method='POST' action='addmatch.php'>
+                                <form method='POST' action='admin_addmatch.php'>
                                     <input type='number' name='hgoal' placeholder='".$rowRound['goal_t1']."' min='0' required>
                                     <h3>:</h3>
                                     <input type='number' name='agoal' placeholder='".$rowRound['goal_t2']."' min='0' required>
@@ -93,21 +93,26 @@
                             }
                             echo"
                                 </div>
-                              <p>".$away['name']."</p>
+                              <h4>".$away['name']."</h4>
                             </div>
 
                             <div class='match-stats'>";
 
-                            $goalsResult = pg_query($conn, "SELECT player.id AS pid , player.name AS pname , player.teams_id AS teamid , goals.minute AS goal
+                            $goalsResult = pg_query($conn, "SELECT player.id AS pid,
+                            player.name AS pname,
+                            player.teams_id AS teamid,
+                            goals.matches_id AS mid,
+                            goals.minute AS goal
                             FROM player, goals
                             WHERE player.id = goals.player_id
                             AND goals.matches_id = '$rowRound[id]'
                             ORDER BY goal ASC") or die;
-                            
+                        
 
+                            //form to add scorer
                             if($rowRound['goal_t1'] != NULL || $rowRound['goal_t2'] != NULL){
                                 echo"
-                                <form method='POST' action='addmatch.php'>
+                                <form method='POST' action='admin_addmatch.php'>
                                     <select name='pname' required>
                                     <option disabled value='' selected>Marcador</option>";
                                     $addPlayer = pg_query($conn, "SELECT player.name AS scorer , player.id AS scorerid
@@ -127,6 +132,7 @@
                             }
 
 
+                            //displays all goals per match  
                             while ($goal = pg_fetch_assoc($goalsResult) ){
 
                                 if($goal['teamid'] == $home['t_id']){
@@ -134,7 +140,7 @@
                                     <div class='goal g-home'>
                                         <p>".$goal['pname']."</p>
                                         <h4>min ".$goal['goal']."'</h4>
-                                        <a id='delete' href='addmatch.php?rp=$goal[pid]'>x</a>
+                                        <a id='delete' href='admin_addmatch.php?rp=$goal[pid]&&rpm=$goal[mid]'>x</a>
                                     </div>
                                     ";
                                 }
@@ -143,66 +149,12 @@
                                     <div class='goal g-away'>
                                         <h4>min ".$goal['goal']."'</h4>
                                         <p>".$goal['pname']."</p>
-                                        <a id='delete' href='addmatch.php?rp=$goal[pid]'>x</a>
+                                        <a id='delete' href='admin_addmatch.php?rp=$goal[pid]&&rpm=$goal[mid]'>x</a>
                                     </div>
                                     ";
                                 }
                                    
                             }
-
-
-
-/*
-                            echo"
-                            <form method='POST'>";
-
-                            while ($goal = pg_fetch_assoc($goalsResult) ){
-                                $addPlayerT1 = pg_query($conn, "SELECT player.name AS scorer , player.id AS scorerid
-                                                                FROM player
-                                                                WHERE $rowRound[teams_id] = player.teams_id ");
-
-                                $addPlayerT2 = pg_query($conn, "SELECT player.name AS scorer , player.id AS scorerid
-                                                                FROM player
-                                                                WHERE $rowRound[teams_id1] = player.teams_id ");
-
-                                    if($goal['teamid'] == $home['t_id']){
-                                    echo"
-                                        <div class='goal g-home'>
-                                            <select>
-                                                <option name='pname' value='".$goal['pid']."'>".$goal['pname']."</option>";
-                                                while ($rowPlayer = pg_fetch_assoc($addPlayerT1) ) {
-                                                    echo "<option value='".$rowPlayer['scorerid']."'>".$rowPlayer['scorer']."</option>";
-                                                }
-                                    echo"            
-                                            </select>
-                                            <input name='minute' placeholder='min ".$goal['goal']." ''>
-                                        </div>
-                                        ";
-                                    }
-
-                                    else if($goal['teamid'] == $away['t_id']){
-                                    echo"
-                                        <div class='goal g-away'>
-                                            <input name='minute' placeholder='min ".$goal['goal']." ''>
-                                            <select>
-                                            <option name='pname' value='".$goal['pid']."'>".$goal['pname']."</option>";
-                                            while ($rowPlayer = pg_fetch_assoc($addPlayerT2) ) {
-                                                echo "<option value='".$rowPlayer['scorerid']."'>".$rowPlayer['scorer']."</option>";
-                                            }
-                                    echo"            
-                                        </select>
-                                        </div>
-                                        ";
-                                    }
-
-                                }
-            
-                            echo"
-                            
-                            <button type='submit' value='$rowRound[id]' name='sub'>Registar</button>
-                            </form>
-
-                            */
                             echo"
                             </div>
                             </div>
@@ -220,6 +172,7 @@
 ?>
     </div>
 </main>
+<script src="../js/myscript.js"></script>
 <script src="../js/calendar.js"></script>
 </body>
 </html>

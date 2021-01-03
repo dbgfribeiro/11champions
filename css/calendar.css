@@ -113,11 +113,34 @@
 @media (min-width: 1000px) {
     .calendar-container  { grid-template-columns: repeat(4, 1fr); }
 }
+@media only screen and (max-width: 800px) {
+    .round-container {
+        width: 90%;
+    }
+}
 
+
+/*------------------ADMIN---------------------*/
+
+.calendar-match #delete{
+    position: absolute;
+    background-color: #FBE204;
+    color: #1f252b;
+    text-decoration: none;
+    right: 4%;
+    bottom: 4%;
+    padding: 0 6px;
+    line-height: 18px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.calendar-match #delete:hover{
+    opacity: 50%;
+}
 #add{
     text-decoration: none;
     background: #FBE204;
-    color: #101010;
+    color: #1f252b;
     padding: 0 8px;
     font-size: 18px;
     border-radius: 5px;
@@ -171,9 +194,6 @@
     font-weight: bold;
     font-size: 2em;
 }
-
-/*------------------ADMIN---------------------*/
-
 .add-match-form form {
     padding-top: 40px;
 }

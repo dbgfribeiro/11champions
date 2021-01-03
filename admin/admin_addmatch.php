@@ -32,6 +32,16 @@
     $add = $_POST['add'];
 
     $delete=$_GET['rp'];
+    $deleteMid=$_GET['rpm'];
+
+
+    /*imports from calendar*/
+    $deleteCal=$_GET['rm'];
+
+
+    /*imports from teams*/
+    $deletePl=$_GET['rn'];
+    
 
 
     if(isset($mt)){
@@ -56,29 +66,45 @@
                   VALUES ('$min', '$pn', '$add')";
 
         $data=pg_query($conn, $query);
-
-        echo"
-        <div class='main'>
-            <div class='error'>
-                <p>Marcador Adicionado!</p>
-            </div>
-        </div>
-     ";
-    header("refresh:2;url=../admin/results_admin.php");
+        header('location: ../admin/results_admin.php');
     }
 
     else if(isset($delete)){
-        $query = "DELETE FROM goals WHERE player_id = '$delete'";
+        $query = "DELETE FROM goals WHERE player_id = '$delete' AND goals.matches_id = '$deleteMid'";
 
         $data=pg_query($conn, $query);
+        
+        header('location: ../admin/results_admin.php');
+    }
+
+    else if(isset($deleteCal)){
+        $query = "DELETE FROM matches WHERE id = '$deleteCal'";
+
+        $data=pg_query($conn, $query);
+
         echo"
         <div class='main'>
             <div class='error'>
-                <p>Marcador Removido!</p>
+                <p>Jogo Removido!</p>
             </div>
         </div>
      ";
-    header("refresh:2;url=../admin/results_admin.php");
+     header("refresh:2;url=../admin/calendar_admin.php");
+    }
+
+    else if(isset($deletePl)){
+        $query = "DELETE FROM player WHERE id = '$deletePl'";
+
+        $data=pg_query($conn, $query);
+
+        echo"
+            <div class='main'>
+                <div class='error'>
+                    <p>Jogador removido!</p>
+                </div>
+            </div>
+         ";
+        header("refresh:2;url=../admin/teams_admin.php");
     }
 
 
@@ -92,7 +118,7 @@
                 </div>
             </div>
          ";
-        header("refresh:2;url=../admin/results_admin.php");
+        header("refresh:2;url=../admin/teams_admin.php");
     }
 
 
