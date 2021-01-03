@@ -4,7 +4,7 @@
 
     <div class="nav-menu">
         <a href="index.php" id="logo"><img src="img/icon.png" alt="logo"></a>
-        <div class="hamburguer" onclick="myFunction(this)">
+        <div class="hamburguer" onclick="menuFunction(this)">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>

@@ -75,7 +75,7 @@
                             if($rowRound['goal_t1'] == NULL || $rowRound['goal_t2'] == NULL){
                             echo"
                             
-                                <form method='POST' action='admin_addmatch.php'>
+                                <form method='POST' action='admin_updates.php'>
                                     <input type='number' name='hgoal' min='0' required>
                                     <h3>:</h3>
                                     <input type='number' name='agoal' min='0' required>
@@ -84,7 +84,7 @@
                             }
                             else{
                             echo"
-                                <form method='POST' action='admin_addmatch.php'>
+                                <form method='POST' action='admin_updates.php'>
                                     <input type='number' name='hgoal' placeholder='".$rowRound['goal_t1']."' min='0' required>
                                     <h3>:</h3>
                                     <input type='number' name='agoal' placeholder='".$rowRound['goal_t2']."' min='0' required>
@@ -99,29 +99,37 @@
                             <div class='match-stats'>";
 
                             $goalsResult = pg_query($conn, "SELECT player.id AS pid,
-                            player.name AS pname,
-                            player.teams_id AS teamid,
-                            goals.matches_id AS mid,
-                            goals.minute AS goal
-                            FROM player, goals
-                            WHERE player.id = goals.player_id
-                            AND goals.matches_id = '$rowRound[id]'
-                            ORDER BY goal ASC") or die;
+                                                            player.name AS pname,
+                                                            player.teams_id AS teamid,
+                                                            goals.matches_id AS mid,
+                                                            goals.minute AS goal
+                                                            FROM player, goals
+                                                            WHERE player.id = goals.player_id
+                                                            AND goals.matches_id = '$rowRound[id]'
+                                                            ORDER BY goal ASC") or die;
                         
 
                             //form to add scorer
                             if($rowRound['goal_t1'] != NULL || $rowRound['goal_t2'] != NULL){
                                 echo"
-                                <form method='POST' action='admin_addmatch.php'>
+                                <form method='POST' action='admin_updates.php'>
                                     <select name='pname' required>
                                     <option disabled value='' selected>Marcador</option>";
-                                    $addPlayer = pg_query($conn, "SELECT player.name AS scorer , player.id AS scorerid
-                                    FROM player
-                                    WHERE player.teams_id = $rowRound[teams_id]
-                                    OR player.teams_id = $rowRound[teams_id1]
-                                    ORDER BY scorer ASC");
+                                    $addPlayer = pg_query($conn, "SELECT player.name AS scorer , player.id AS scorerid , player.teams_id AS player_tid
+                                                                  FROM player
+                                                                  WHERE player.teams_id = $rowRound[teams_id]
+                                                                  OR player.teams_id = $rowRound[teams_id1]
+                                                                  ORDER BY player_tid , scorer ASC");
+
                                     while ($rowPlayer = pg_fetch_assoc($addPlayer) ) {
-                                        echo "<option value='".$rowPlayer['scorerid']."'>".$rowPlayer['scorer']."</option>";
+                                        //create an option for home team players
+                                        if($rowPlayer['player_tid'] == $home['t_id']){
+                                            echo "<option value='".$rowPlayer['scorerid']."'>".$rowPlayer['scorer']." (".$home['name'].")</option>";
+                                        }
+                                        //create an option for away team players
+                                        else if($rowPlayer['player_tid'] == $away['t_id']){
+                                            echo "<option value='".$rowPlayer['scorerid']."'>".$rowPlayer['scorer']." (".$away['name'].")</option>";
+                                        }
                                     }
                                 echo"
                                     </select>
@@ -140,7 +148,7 @@
                                     <div class='goal g-home'>
                                         <p>".$goal['pname']."</p>
                                         <h4>min ".$goal['goal']."'</h4>
-                                        <a id='delete' href='admin_addmatch.php?rp=$goal[pid]&&rpm=$goal[mid]'>x</a>
+                                        <a id='delete' href='admin_updates.php?rp=$goal[pid]&&rpm=$goal[mid]'>x</a>
                                     </div>
                                     ";
                                 }
@@ -149,7 +157,7 @@
                                     <div class='goal g-away'>
                                         <h4>min ".$goal['goal']."'</h4>
                                         <p>".$goal['pname']."</p>
-                                        <a id='delete' href='admin_addmatch.php?rp=$goal[pid]&&rpm=$goal[mid]'>x</a>
+                                        <a id='delete' href='admin_updates.php?rp=$goal[pid]&&rpm=$goal[mid]'>x</a>
                                     </div>
                                     ";
                                 }
@@ -172,7 +180,7 @@
 ?>
     </div>
 </main>
-<script src="../js/myscript.js"></script>
+<script src="../js/mainscript.js"></script>
 <script src="../js/calendar.js"></script>
 </body>
 </html>

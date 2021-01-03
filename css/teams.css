@@ -161,7 +161,7 @@
     opacity: 0.5;
 }
 
-.add-player{
+.add-player, .add-team{
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -170,7 +170,7 @@
     display: none;
 }
 
-.add-player-back{
+.add-player-back, .add-team-back{
     background-color: rgba(0,0,0,0.75);
     filter: blur(20px);
     position: absolute;
@@ -178,7 +178,7 @@
     height: 100%;
 }
 
-.add-player-form{
+.add-player-form, .add-team-form{
     background-color: #1f252b;
     box-shadow: 0px 5px 25px 5px rgba(1,1,1,0.25);
     width: 50%;
@@ -192,25 +192,34 @@
     border-radius: 25px;
     padding: 5%;
 }
-.team-players #delete{
-    color: #FBE204;
+.add-player-form a, .add-team-form a{
     text-decoration: none;
-    font-weight: bolder;
+    color: #FBE204;
+    position: absolute;
+    left: 50%;
+    bottom: 8%;
+    padding: 1% 4%;
+    border-radius: 10px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
 }
 
+.add-player-form a:hover, .add-team-form a:hover{
+    text-decoration: underline;
+}
 
-.add-player-form p {
+.add-player-form p , .add-team-form p {
     text-align: center;
     color: #ebebeb;
     font-weight: bold;
     font-size: 2em;
 }
 
-.add-player-form form {
+.add-player-form form , .add-team-form form{
     padding-top: 40px;
 }
 
-.tm , .pn, .pa, .pp {
+.tm , .pn, .pa, .pp , .ta{
     width: 100%;
     color: #ebebeb;
     font-weight: 700;
@@ -223,7 +232,7 @@
     border: 2px solid rgba(0, 0, 0, 0.02);
     margin-bottom: 27px;
 }
-.pn:focus, .pa:focus {
+.pn:focus, .pa:focus , .ta:focus{
     border: 2px solid rgba(0, 0, 0, 0.18) !important;
 
 }
@@ -242,6 +251,28 @@
 }
 .submit:hover{
     opacity: 0.6;
+}
+#add{
+    text-decoration: none;
+    background: #FBE204;
+    color: #1f252b;
+    padding: 0 8px;
+    font-size: 18px;
+    border-radius: 5px;
+    height: fit-content;
+    transition: 0.2s;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+#add:hover{
+    opacity: 50%;
+}
+.team-players #delete{
+    color: #FBE204;
+    text-decoration: none;
+    font-weight: bolder;
 }
 
 /*--------------------QUERIES--------------------*/

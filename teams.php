@@ -44,6 +44,7 @@
         
         
         while ($row = pg_fetch_assoc($teamsResult) ){
+
             
             $logo_src = 0;
             include 'logos_loader.php';
@@ -134,6 +135,6 @@
 <footer>
 
 </footer>
-<script src="js/myscript.js"></script>
+<script src="js/mainscript.js"></script>
 </body>
 </html>

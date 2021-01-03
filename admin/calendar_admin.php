@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/calendar.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/myscript.js"></script>
     <title>admin_Calendário</title>
 </head>
 <body>
@@ -40,7 +39,11 @@
         $matchJan = pg_query($conn, "SELECT * FROM matches where '2021-01-01' <= day AND day < '2021-02-01' ORDER BY day ASC") or die;
         $matchFeb = pg_query($conn, "SELECT * FROM matches where '2021-02-01' <= day AND day < '2021-03-01' ORDER BY day ASC") or die;
 
+        //create one container for each month
 
+
+
+        /*-----------------------NOVEMBER------------------------*/
 
         echo "<div class='round-container' id='nov'>
                 <div class='month'>
@@ -75,13 +78,16 @@
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
-                            <a id='delete' href='admin_addmatch.php?rm=$match[id]'>x</a>
+                            <a id='delete' href='admin_updates.php?rm=$match[id]'>x</a>
                         </div>
                     ";
             }
             echo "</div>
                  </div>";
 
+
+
+        /*-----------------------DECEMBER------------------------*/
 
         echo "<div class='round-container' id='dec'>
                 <div class='month'>
@@ -115,12 +121,16 @@
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
-                            <a id='delete' href='admin_addmatch.php?rm=$match[id]'>x</a>
+                            <a id='delete' href='admin_updates.php?rm=$match[id]'>x</a>
                         </div>
                     ";
         }
         echo "</div>
              </div>";
+
+
+
+        /*-----------------------JANUARY------------------------*/
 
         echo "<div class='round-container' id='jan'>
                 <div class='month'>
@@ -154,7 +164,7 @@
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
-                            <a id='delete' href='admin_addmatch.php?rm=$match[id]'>x</a>
+                            <a id='delete' href='admin_updates.php?rm=$match[id]'>x</a>
                         </div>
                     ";
         }
@@ -162,6 +172,8 @@
              </div>";
 
 
+
+        /*-----------------------FEBRUARY------------------------*/
 
         echo "<div class='round-container' id='fev'>
                 <div class='month'>
@@ -173,11 +185,15 @@
                     </div>
                 </div>
                 <div class='calendar-container'>";
+
+
         while ($match = pg_fetch_assoc($matchFeb) ) {
+
             $homeTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE $match[teams_id] = teams.id") or die;
             $awayTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE $match[teams_id1] = teams.id") or die;
             $home = pg_fetch_array($homeTeam);
             $away = pg_fetch_array($awayTeam);
+
             echo "
                         <div class='calendar-match' content=".$match['result'].">
                             <div class='match-day'>
@@ -195,7 +211,7 @@
                             <div class='away-team team'>
                                 <p>".$away['name']."</p>
                             </div>
-                            <a id='delete' href='admin_addmatch.php?rm=$match[id]'>x</a>
+                            <a id='delete' href='admin_updates.php?rm=$match[id]'>x</a>
                         </div>
                     ";
         }
@@ -221,6 +237,7 @@
                 <form method='POST'>
                     <select class='ro' name='round' onChange='dateSelect(this);'>
                         <option disabled value='' selected>Nº Jornada</option>";
+                        //create an option for each round
                         for($i=1; $i<=14; $i++) {
                             echo "<option value=".$i.">".$i."</option>";
                         }
@@ -230,9 +247,11 @@
                     <input class='dt' disabled id='date' type='date' name='date'></input>
 
                     <div class='teams'>
+                
                     <select class='ht' name='hometeam'>
                         <option disabled value='' selected>Visitado</option>";
                     while ($homeRow = pg_fetch_assoc($homeTeam) ){
+                        //select home team
                         echo "<option value='".$homeRow['homeid']."'>".$homeRow['homename']."</option>";
                     }
                     echo"
@@ -243,6 +262,7 @@
                     <select class='at' name='awayteam'>
                         <option disabled value='' selected>Visitante</option>";  
                     while ($awayRow = pg_fetch_assoc($awayTeam) ){
+                        //select away team
                         echo "<option value='".$awayRow['awayid']."'>".$awayRow['awayname']."</option>";
                     }
                     echo"
@@ -294,7 +314,7 @@
 
 
 </main>
+<script src="../js/mainscript.js"></script>
 <script src="../js/calendar.js"></script>
-
 </body>
 </html>

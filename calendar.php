@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/calendar.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/myscript.js"></script>
     <title>Calendário</title>
 </head>
 <body>
@@ -39,6 +38,10 @@
         $matchFeb = pg_query($conn, "SELECT * FROM matches where '2021-02-01' <= day AND day < '2021-03-01' ORDER BY day ASC") or die;
 
         //create one container for each month
+
+
+
+        /*-----------------------NOVEMBER------------------------*/
 
         echo "<div class='round-container' id='nov'>
                 <div class='month'>
@@ -77,8 +80,10 @@
             }
             echo "</div>
                  </div>";
-                 
 
+
+
+        /*-----------------------DECEMBER------------------------*/
 
         echo "<div class='round-container' id='dec'>
                 <div class='month'>
@@ -118,7 +123,9 @@
              </div>";
 
 
-            
+        
+        /*-----------------------JANUARY------------------------*/
+
         echo "<div class='round-container' id='jan'>
                 <div class='month'>
                     <h2>JANEIRO<span>3/4</span></h2>
@@ -158,6 +165,9 @@
 
 
 
+
+        /*-----------------------FEBRUARY------------------------*/
+
         echo "<div class='round-container' id='fev'>
                 <div class='month'>
                     <h2>FEVEREIRO<span>4/4</span></h2>
@@ -172,6 +182,7 @@
             $awayTeam = pg_query($conn, "SELECT teams.name from teams, matches WHERE $match[teams_id1] = teams.id") or die;
             $home = pg_fetch_array($homeTeam);
             $away = pg_fetch_array($awayTeam);
+            
             echo "
                         <div class='calendar-match' content=".$match['result'].">
                             <div class='match-day'>
@@ -201,6 +212,7 @@
 
 
 </main>
+<script src="js/mainscript.js"></script>
 <script src="js/calendar.js"></script>
 </body>
 </html>

@@ -90,6 +90,6 @@
         ?>
     </div>
 </main>
-<script src="js/myscript.js"></script>
+<script src="js/mainscript.js"></script>
 </body>
 </html>

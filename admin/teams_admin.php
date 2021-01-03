@@ -29,13 +29,10 @@
     error_reporting(0);
 
 
-
-    /*---------------------------------ADD PLAYER FORM-----------------------------*/
-
     /*----------get table teams info-----------*/
     $teamsResult = pg_query($conn, "SELECT teams.name AS team_name , teams.id AS team_id FROM teams ORDER BY team_name ASC");
 
-
+    /*---------------------------------ADD PLAYER FORM-----------------------------*/
     echo "
             <div class='add-player' id='addPlayer'>
                 <div class='add-player-back' onclick='added()'></div>
@@ -65,31 +62,74 @@
                
                         <input class='pa' type='number' placeholder='Idade' name='age' required>
 
-                        <input class='submit' type='submit' name='submit' value='Submeter'>
+                        <input class='submit' type='submit' name='submitp' value='Submeter'>
                         
                     </form>
                 </div>
             </div>
         ";
 
+
+    /*---------------------------------ADD TEAM FORM-----------------------------*/
+    /*WARING*/
+    //only use before the championship starts
+    echo "
+    <div class='add-team' id='addTeam'>
+        <div class='add-team-back' onclick='added()'></div>
+        <div class='add-team-form'>
+            <p>Adicionar Equipa</p>
+            <form method='get'>
+                <input class='ta' type='text' placeholder='Nome Equipa' name='namet' required>
+                <input class='submit' type='submit' name='submiteam' value='Submeter'>
+            </form>
+        </div>
+    </div>
+";
+
+
     $tid=$_GET['team'];
     $pn=$_GET['player'];
     $pp=$_GET['pos'];
     $pa=$_GET['age'];
+    $sub_p=$_GET['submitp'];
+
+    $tn=$_GET['namet'];
+    $sub_t=$_GET['submiteam'];
 
     /*----------insert into player form's received data-----------*/
-    $query="INSERT INTO player (name, age, position, teams_id)
-            VALUES ('$pn', '$pa', '$pp', '$tid');";
+    if (isset($sub_p)){
+        $query="INSERT INTO player (name, age, position, teams_id)
+        VALUES ('$pn', '$pa', '$pp', '$tid');";
 
-    $data=pg_query($conn,$query);
+        $data=pg_query($conn,$query);
 
-    if ($data){
         header("refresh:3;url=../admin/teams_admin.php");
         echo"
             <div class='add-player' style='display: block'>
                 <div class='add-player-back' onclick='added()'></div>
                 <div class='add-player-form'>
                   <p>O jogador <span style='color: #FBE204'>".$pn."</span> foi inserido!</p>
+                  <a href='teams_admin.php'>Voltar</a>
+                </div>
+            </div>
+         ";
+    }
+
+    /*----------insert into teams form's received data-----------*/
+    else if(isset($sub_t)){
+
+        $query="INSERT INTO teams (name, matches_played)
+        VALUES ('$tn', 0);";
+    
+        $data=pg_query($conn,$query);
+
+        header("refresh:3;url=../admin/teams_admin.php");
+        echo"
+            <div class='add-team' style='display: block'>
+                <div class='add-team-back' onclick='added()'></div>
+                <div class='add-team-form'>
+                  <p>A equipa <span style='color: #FBE204'>".$tn."</span> foi inserida!</p>
+                  <a href='teams_admin.php'>Voltar</a>
                 </div>
             </div>
          ";
@@ -102,6 +142,9 @@
         <h1>EQUIPAS</h1>
 
         <?php
+        echo"
+        <a href='#' id='add' onclick='addTeam()'>+</a>
+        ";
 
 
         /*----------get table teams info-----------*/
@@ -146,7 +189,7 @@
             while ($playerRow = pg_fetch_assoc($avancadoResult) ){
                 echo "<li>".$playerRow['player_name']."<br>
                       <span>".$playerRow['age']." anos</span>
-                      <a id='delete' href='admin_addmatch.php?rn=$playerRow[player_id]'>x</a>
+                      <a id='delete' href='admin_updates.php?rn=$playerRow[player_id]'>x</a>
                       </li>";
             }
             echo "</ul>";
@@ -163,7 +206,7 @@
             while ($playerRow = pg_fetch_assoc($medioResult) ){
                 echo "<li>".$playerRow['player_name']."<br>
                       <span>".$playerRow['age']." anos</span>
-                      <a id='delete' href='admin_addmatch.php?rn=$playerRow[player_id]'>x</a>
+                      <a id='delete' href='admin_updates.php?rn=$playerRow[player_id]'>x</a>
                       </li>";
             }
             echo "</ul>";
@@ -180,7 +223,7 @@
             while ($playerRow = pg_fetch_assoc($defesaResult) ){
                 echo "<li>".$playerRow['player_name']." <br>
                       <span>".$playerRow['age']." anos</span>
-                      <a id='delete' href='admin_addmatch.php?rn=$playerRow[player_id]'>x</a>
+                      <a id='delete' href='admin_updates.php?rn=$playerRow[player_id]'>x</a>
                       </li>";
             }
             echo "</ul>";
@@ -197,14 +240,14 @@
             while ($playerRow = pg_fetch_assoc($grResult) ){
                 echo "<li>".$playerRow['player_name']." <br>
                       <span>".$playerRow['age']." anos</span>
-                      <a id='delete' href='admin_addmatch.php?rn=$playerRow[player_id]'>x</a>
+                      <a id='delete' href='admin_updates.php?rn=$playerRow[player_id]'>x</a>
                       </li>";
             }
             echo "</ul>";
 
 
             echo "
-                    <button id='editPlayer' onclick='add()'>Editar</button> <!-- button that opens add player form -->
+                    <button id='editPlayer' onclick='addPlayer()'>Editar</button>
                 </div>
             </div>
           ";
@@ -215,6 +258,6 @@
 
 </main>
 
-<script src="../js/myscript.js"></script>
+<script src="../js/mainscript.js"></script>
 </body>
 </html>

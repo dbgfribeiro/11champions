@@ -1,5 +1,5 @@
 //hamburguer
-function myFunction(x) {
+function menuFunction(x) {
     x.classList.toggle("change");
     var menu = document.getElementById("mobile");
     menu.style.transition = menu.style.transition == "height 0.3s ease-out" ? "height 0.15s ease-in" : "height 0.3s ease-out";
@@ -32,13 +32,19 @@ $(document).ready(function(){
 });
 
 
-//add player form
-function add(){
+//add player or teamform
+function addPlayer(){
     $("#addPlayer").fadeIn();
+}
+function addTeam(){
+    $("#addTeam").fadeIn();
 }
 function added(){
     $("#addPlayer").fadeOut();
+    $("#addTeam").fadeOut();
 }
+
+
 
 
 

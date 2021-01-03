@@ -21,29 +21,33 @@
 
     error_reporting(0);
 
-    /*imports from match result*/
+    /*---------Match result--------*/
     $hg = $_POST['hgoal'];
     $ag= $_POST['agoal'];
     $mt= $_POST['sub'];
 
-    /*imports from match scorers*/
+    /*---------Match scorers--------*/
     $pn = $_POST['pname'];
     $min = $_POST['minute'];
     $add = $_POST['add'];
-
+    //get scorer id
     $delete=$_GET['rp'];
+    //get match id
     $deleteMid=$_GET['rpm'];
 
 
-    /*imports from calendar*/
+    /*---------Claendar match--------*/
+    //id to remove
     $deleteCal=$_GET['rm'];
 
 
-    /*imports from teams*/
+    /*---------Player--------*/
+    //id to remove
     $deletePl=$_GET['rn'];
-    
 
 
+
+    /*---------Insert match result--------*/
     if(isset($mt)){
         $query = "UPDATE matches
                 SET goal_t1 = '$hg', goal_t2 = '$ag'
@@ -61,6 +65,8 @@
         header("refresh:2;url=../admin/results_admin.php");
     }
 
+
+    /*---------Insert goal scorer--------*/
     else if(isset($add)){
         $query = "INSERT INTO goals (minute, player_id, matches_id)
                   VALUES ('$min', '$pn', '$add')";
@@ -68,7 +74,7 @@
         $data=pg_query($conn, $query);
         header('location: ../admin/results_admin.php');
     }
-
+    /*---------Delete goal scorer--------*/
     else if(isset($delete)){
         $query = "DELETE FROM goals WHERE player_id = '$delete' AND goals.matches_id = '$deleteMid'";
 
@@ -77,6 +83,8 @@
         header('location: ../admin/results_admin.php');
     }
 
+
+    /*---------Delete match--------*/
     else if(isset($deleteCal)){
         $query = "DELETE FROM matches WHERE id = '$deleteCal'";
 
@@ -92,6 +100,9 @@
      header("refresh:2;url=../admin/calendar_admin.php");
     }
 
+
+
+    /*---------Delete player--------*/
     else if(isset($deletePl)){
         $query = "DELETE FROM player WHERE id = '$deletePl'";
 
@@ -109,7 +120,7 @@
 
 
 
-
+    /*---------ERROR MESSAGE--------*/
     else{
         echo"
             <div class='main'>

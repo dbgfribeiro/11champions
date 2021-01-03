@@ -4,6 +4,7 @@
     font-family: 'Poppins', sans-serif;
 }
 textarea, select, input, button { outline: none; }
+
 body{
     background-color: #101010;
 }

@@ -77,12 +77,12 @@
                                 <div class='match-stats'>";
 
                                 $goalsResult = pg_query($conn, "SELECT player.name AS pname , player.teams_id AS teamid , goals.minute AS goal
-                                FROM player, goals
-                                WHERE player.id = goals.player_id
-                                AND goals.matches_id= '$rowRound[id]'
-                                ORDER BY goal ASC") or die;
+                                                                FROM player, goals
+                                                                WHERE player.id = goals.player_id
+                                                                AND goals.matches_id= '$rowRound[id]'
+                                                                ORDER BY goal ASC") or die;
 
-                                //displays all goals per match  
+                                //displays all goals per match and respective scorers and minutes
                                 while ($goal = pg_fetch_assoc($goalsResult) ){
 
                                     if($goal['teamid'] == $home['t_id']){
@@ -118,7 +118,7 @@
         ?>
     </div>
 </main>
-<script src="js/myscript.js"></script>
+<script src="js/mainscript.js"></script>
 <script src="js/calendar.js"></script>
 </body>
 </html>
